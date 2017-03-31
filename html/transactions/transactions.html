@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="transactions">Transactions</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="transactions">Transactions</h1>
 <p>The Bitcoin Blockchain serves Bitcoin by generating the supply of coins and facilitating their trade, along with standard Bitcoin trades between users. When transacting on the Blockchain, an atomic unit of transacting called a <em>transaction</em> serves to move funds. All fund movements on the Blockchain occur through transactions. In fact transactions are the sole record stored in the Blockchain, there are no balances or accounts, only chains of transactions between all the Blockchain users.</p>
 <p>Transactions themselves are simple short programs called <em>smart contracts</em> which define the source and destination of funds, plus the restrictions and authorizations regarding their transfer. At a simplified high level a transaction smart contract says, &quot;the funds that are provably certified to be moved may be used to fund to another party&#39;s re-spending of the funds given their own provable certification restriction&quot;. The set of transactions forms a one way chain of spending from first the generation of every coin to the final owner or owners.</p>
 <p>Only Bitcoin miners may include transactions into the Blockchain record, through the proof of work system that prevents arbitrary updating of the widely synced record. To submit transactions to the miners any method may be used to convey the data, but most commonly the transactions use the broadcast system of the Bitcoin peer to peer network to send a transaction in its initial unconfirmed state to the network peers who wish to sync unconfirmed transactions. Miners listen to this network for unconfirmed transactions, selecting the ones they see fit to include in their updates to Blockchain blocks, restricted by the network consensus rule regarding block size maximum transaction data.</p>
@@ -33,18 +15,5 @@
 <h2 id="coinbase-transactions">Coinbase Transactions</h2>
 <p>Each block in the shared Blockchain collection of transactions includes a special transaction as the first transaction in the block, known as the <em>coinbase transaction</em>. These transactions, created by miners through <em>mining</em> or <em>generation</em>, are allowed to create an input that takes funds from the funding overflow of a block, defined by all the excesses of any block transaction inputs not spent by their outputs, also known as fees, plus the block subsidy, a longstanding but exponentially decreasing sum used to mint and distribute the money supply over one hundred years.</p>
 <p>The input of a coinbase transaction does not have a script signature in its input, it has arbitrary miner chosen data, plus the difficulty target and a random <em>nonce</em> value called <em>extraNonce</em> used when mining to advance to a new set of hash possibilities for the proof of work mining system.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/transactions/transactions.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+<p>Sometimes the coinbase transaction is represented as a hex string, as if it were a normal input to a transaction. Although this may be arbitrary data, commonly all that is needed to decode this transaction data is simply to convert the data represented by the hex string into a UTF output.</p>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/transactions/transactions.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
