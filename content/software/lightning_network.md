@@ -1,0 +1,124 @@
+# Lightning Network
+
+The **Lightning Network** is a concept proposed by developers Thaddeus Dryja and Joseph Poon to create a network of trust-less payment channels on top of the Bitcoin Blockchain. The goal of this network is to allow for instantaneously secure Bitcoin payments of any amount, no matter how small.
+
+## Motivation
+
+### The Scalability Problem
+
+From the earliest days of Bitcoin, critics took issue with its scalability characteristics. The [very first response](https://www.mail-archive.com/cryptography@metzdowd.com/msg09963.html) to Satoshi Nakamoto's described design was a total rejection of the system as being unable to deal with the enormous capacity demands of the world's economy. This message was the first, but far from the last time the scalability of Bitcoin would be called into question.
+
+The reason for this skepticism is that in computer science, there are well understood system designs and algorithm designs, with vastly different costs. For example when a design calls for searching through a group of words, an adjustment to make the words alphabetically ordered can produce a potentially [billion times faster solution](https://en.wikipedia.org/wiki/Binary_search_algorithm). Simply by using a strategy of checking in exponentially reducing half sections, the search is executed at an exponentially reduced cost. The Blockchain is an example of a system in which growth of use does not just grow cost linearly, but instead at an exponentially increasing rate.
+
+The reason for this inefficiency is that when the Blockchain adds a new member who needs to send payments, the new member incurs a cost on all the other members who have a need to fully validate payments. All fully validating members of the Blockchain must sync and validate everything all other members produce. From the perspective of the total system, this means that [the total system cost is increasing as a power of two](http://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-March/004798.html), the polar opposite outcome of what a more ideally scalable and efficient algorithm would yield.
+
+### Scalability Solutions
+
+Satoshi Nakamoto realized this deficiency in his original proposal, and came up with a proposed solution. His idea was to reduce the operative mode of validation to be scoped to a user, for users who had less need to validate. Since additional members only incurred costs on validating members, skipping validation from some clients would mean that the impact of adding members was more limited, to be borne only by those who wished to dependably receive payments, such as merchants.
+
+This method he named *Simplified Payments Verification* or *SPV*, and his original outlined plan would present a less secure but still acceptable model for normal consumers because [there would be an alerting mechanism for rule breaches](http://nakamotoinstitute.org/bitcoin/#selection-243.361-243.589) that would signify the system was compromised, proactively preventing attacks on consensus rules.
+
+Although long promised, the demands of Bitcoin Core's development meant that Satoshi was never able to deliver on his promised SPV-mode client. Over time others took his ideas and appropriated the SPV name in making their own similar, but not quite equal solutions. Due to wide differences of opinion in the correct methods and workability of SPV mode, a reference project was never created and the alerting system was never crafted. Nevertheless as a working solution many people adopted lower security but more user friendly and less operationally costly wallets, in many varied configurations.
+
+Eventually the efficiencies of SPV came to be seen as only a temporary optimization of the Blockchain design. Instead of solving the exponential cost of the Blockchain system, SPV clients could only slow the cost increases. The lack of an alerting system and other faults of SPV meant that anyone receiving payments could not rely on it, muting the model's positive impact on the total system scalability cost. SPV's dependency on miner validation made miner centralization concerns more pronounced.
+
+The validation cost burden on merchants and on the overall system began to have secondary negative effects, such as contributing directly to mining centralization by giving outsize advantages to miners with economies of scale. The high cost of a full node contributed to merchant validation centralization by creating an increasingly high cost to validate payments. Many efforts were made to optimize against these increasing costs, but the fundamental design of the Blockchain meant that an increasing tide of transactions would one day overwhelm any possible optimization that did not address the basic peer broadcasting design.
+
+### The End of SPV
+
+Another marked failing of SPV clients proved to be that they could never successfully be secured against financial privacy leakage. This represented a threat to users' personal privacy and even to the overall utility of the currency where all equal denomination coins, no matter their origin, should have close to an equal value.
+
+SPV clients were also seen as unsustainable in a decentralized configuration: since they cannot sync with each other they must make increasing demands on the limited and increasingly costly altruism of the node operators.
+
+SPV could also not provide a solution to another much lamented Blockchain problem: the limitations preventing micro-payments. Early on in Bitcoin's life, to fight floods of small transactions that were called *penny-flooding*, [Satoshi had instituted barriers](http://satoshi.nakamotoinstitute.org/posts/bitcointalk/317/#selection-31.194-31.301) against very small payments: payments smaller than a tenth of a bitcoin were blocked.
+
+Satoshi also created a prioritization system to improve the Blockchain's reliability for high value payments, a marketplace for transactions in every block, with [space being prioritized to the highest value transactions](https://bitcointalk.org/index.php?topic=1314.msg14732#msg14732) as indicated by fees. This further pushed out very small payments, Satoshi often had to regretfully inform people that micro-payments were not feasible.
+
+In the early years of Bitcoin, Satoshi Nakamoto and the other developers faced many and varied pressing immediate practical operational concerns and development realities of simply keeping the Blockchain reliable, durable and secure. Early plans for scalability and support for broad use-cases gave way to what was seen as the most important use-case: high value transactions with a high level of security and durability against network attack. 
+
+Over time the system's long-term scalability, various lower priority use cases, and difficult to implement features like instant settlement were all pushed to be developed outside of the Blockchain on a different layer, called *Layer 2*. Layer 2 systems would still empower transactions denominated in Bitcoin units and be ultimately settled against the Blockchain, but also be able to avoid offering the same guarantees and functionality as the Blockchain, in order to serve a broader range of use cases.
+
+The Lightning Network is an example of a Layer 2 service: a network service that seeks to provide instant settlement, tiny micro-payments, improved privacy, in a system that is fundamentally built on the Blockchain but also logically separated.
+
+## Achieving Lightning
+
+Lightning's solutions are based on a common and long running proposal for how to use the Blockchain to provide for instantly secure and arbitrarily small transactions: payment channels. Payment channels have existed for many years, in both well established theory and as real libraries and projects.
+
+Payment channels are a method of using smart contracts to rapidly trade Bitcoin between two parties, without requiring the Blockchain for more than occasional settlement. The parties create a shared starting balance on the Blockchain and then using signed but un-broadcast transactions rapidly, cheaply, and privately update the balance between them. 
+
+Because the funds are locked in a multiple signature smart contract, cooperation with the channel partner is required to spend the funds, however a payment channel smart contract also specifies a timeout that acts an escape if there is a failure of cooperation. There are multiple ways to form these channels, but they all offer the same advantages: instant transactions, arbitrarily small denomination payments, low fees, and transaction privacy, although only between two joined together parties.
+
+The key innovation in Lightning is to take these joined pairs and link them together in a network: pairs passing along funds to each other in a chain until they reach their destinations. This combines the Blockchain's benefit of sending to arbitrary users with all payment channel benefits like instantly secure transactions.
+
+### Opening Payment Channels
+
+To open channels in Lightning, a Bitcoin transaction smart contract is published with rules for how deposited funds may be spent. The rules of the transaction essentially specify that funds deposited cannot be spent unless both parties agree, with the exception that one party can unilaterally refund his deposited funds to himself if he is willing to wait for a time delay before re-spending them.
+
+The transaction establishing these rules is called a *commitment transaction* and a transaction that adds funds into this channel is called a *funding transaction*. For efficiency, when initiating the channel for the first time both transactions may be folded together into a single Blockchain transaction.
+
+There are two proposed methods for accomplishing Lightning's channel timeout requirement. The first mechanism uses a feature called CLTV that first added to Bitcoin in the soft forking Bitcoin Core version 0.11.2, released in November of 2015. This feature allowed for time-locking funds against a certain date, meaning that channel partners could create fixed future time timeouts for their channels. Using this feature would mean that channels be routinely re-created to bump the timeout window forward.
+
+Another method was also proposed, using a time-locking feature called CSV that was first added to Bitcoin in the soft forking Bitcoin Core version 0.12.1, released in April of 2016. CSV allowed for specifying relative time locking contracts, meaning that channel partners could instead choose their timeout relative to when they executed their channel escape clause, allowing for channels that could remain open indefinitely. Because of this improvement, CSV timeouts were selected as the standard for Lightning payment channels.
+
+### Instant Settlement
+
+Lightning payment channels work pretty much like normal payment channels, they pass signed transactions between two parties to update their balance. There is however one unique aspect that allows for routing: a third party involved in a Lightning balance update transaction called an *R value*. This R value, which is simply a lumping together of information about the movement of funds, allows a transaction between parties to be routable. R values represent hash-able information that can be used as Blockchain presentable proof that funds have been moved across the Lightning Network.
+
+To understand how the R value allows moving money through the interaction of third party Lightning Network actors, it's important to understand that when spending funds on the Blockchain it is not actually the people who authorize funds. Instead it is only their private keys' signatures that authorize spending, all Blockchain funds are actually locked in contracts that have various rules about how they may be unlocked, the most common being that a singular private key may be used to unlock them.
+
+Because Blockchain contracts simply deal in signatures and are scriptable, it is possible to create a type of transaction that is keyed against a signatory who actually knows nothing about the transaction and simply testifies to a system state in a signed way. For example, a server that produced cryptographically signed statements about the weather could be used in a transaction between two parties to be the arbiter of the execution of a weather based funds transfer, without any direct involvement of the server in the transaction itself.
+
+This type of transaction is rare, and it was banned as part of a blanket banning effort by [Gavin Andresen](https://bitcointalk.org/index.php?topic=2162.msg28549#msg28549) and [Jeff Garzik](https://bitcointalk.org/index.php?topic=2129.msg27961#msg27961) who objected to general purpose smart contracts on the Blockchain and promoted the idea of a white listing system called *standard* transactions. In February of 2014, the release of Bitcoin version 0.10.0 mostly lifted this restriction, allowing more novel transaction types. Included in the allowed transaction types were those keyed off of an arbitrary non participatory signature, called *hash locked transactions*.
+
+In February of 2016, Sean Bowe and Pieter Wuille [published a work in progress](https://github.com/bitcoin/bitcoin/pull/7601) version of a special transaction type that could include a time locked transaction with a hash unlock code. This specific type of transaction, called a *Hash Time Locked Contract* or *HTLC*, enables the state changes within Lightning Network channels. 
+
+Lightning Network clients negotiate with the network to send out a transaction to be routed across the network, yielding an updated set of finalized settlement data which represents the settlement update hash lock solution, the R value. This R value is only represented to the Blockchain as an opaque signature, and it could signify any successful routing, including passing of value from the Bitcoin Blockchain to another Blockchain, like the Bitcoin Testnet.
+
+This type of settlement transaction is very powerful, it can be used to create a wide variety of transactions, like multi-signature transactions within the Lightning Network, or even probabilistic settlements within the Lightning Network. A novel payment type called *Pre-Image Length Probabilistic Payment*, or *PILPP* has been proposed as a way to send payments on the Lightning Network that are actually provably probabilistic, meaning it is possible to send someone a one bitcoin with a fifty percent chance of arrival. Using this payment type, it is theorized that services could even charge sub-Satoshi fees for their services by asking customers for probabilistic payments of a single Satoshi.
+
+### Settlement Security
+
+The Lightning Network offers a particularly private solution to executing a transaction, called *onion routing*, in a method similar to the online privacy system Tor, also known as *The Onion Router*. The way that Lightning Network transactions are executed, each client considers the destination for funds and then decides on a linked series of pairs to execute the transfer. The client then wraps the pair series information in an encrypted format so that each pair jump is only given information on a need-to-know basis. The intermediary relays are not given information about any of the other pairs, including the final destination of the transfer they are assisting.
+
+To avoid a situation where pairs fail to execute their fund passing duty, routed payments are given a *TTL*, or a *time to live*, meaning that the payments are no longer valid after a certain point. This allows automatic retrying of payments that fail to route successfully due to a third party fund transfer failure. Transactions can also use fees to incentivize pairs to successfully pass funds in a timely manner; pairs that fail to route may bear an opportunity cost.
+
+### In Breach of Contract
+
+From the Blockchain's perspective, Lightning Network funds are just funds deposited in a two of two signature multi-signature wallet. As the balance of funds changes within a channel, the settlement is actually done through a transaction that may be broadcast at any time to the Blockchain to settle funds back to each party. 
+
+With potentially thousands of balance state change transactions, the balance within the channel is intended to go up and down over time. This presents a major problem for payment channels: what happens if the other party broadcasts an obsolete state of the balance of payment to the network that ignores a recent payment, and therefore steals funds?
+
+This situation in which there is a breach of the basic channel contract where an out of date state is broadcast can only be solved by correcting the Blockchain record in response, meaning the stored funds must be monitored for breaches. In the Lightning Network the solution to this issue is to preemptively prepare a special type of transaction called a *breach remedy* transaction that prevents the invalid old state from being used to steal funds.
+
+A breach remedy transaction goes beyond reclaiming the injured party's funds. To discourage theft, the transaction also takes the entirety of the offending party's funds as a penalty. For this reason it is recommended that a channel never be allowed to empty, that some funds to take in penalty always remain, to avoid a situation called an *exhausted* channel.
+
+Breach remedy transactions are formed as a part of every update to the balance of payments in a Lightning Network channel, in a flow called the *Revocable Sequence Maturity Contract* or *RSMC*. The RSMC flow is done without requiring trust in the other party, generating and exchanging the guarantees against betrayal before completing the funds state update.
+
+Breach remedy transactions are fully formed, fully signed, and they may even be safely published to third parties with rewards for the first publisher attached, to incentivize many eyes watching for and preventing a breach of contract.
+
+### Closing Time
+
+Sometimes channel participants may wish to close their channels, for regular channel rebalancing or just to make a Blockchain payment. Lightning Network transactions that settle back to the Blockchain are called *exercise settlement* transactions, and they are simply standard co-signed transactions. Funds are sent as in any standard multi-signature transaction and the channel is considered closed. This happens instantly, as long as the channel partner is cooperative.
+
+In the event that a channel partner is unavailable to close the channel, another option is possible, which is to exercise the CSV clause specified in the channel opening contract. This clause says that any party may unilaterally close the channel and reclaim their funds, provided that they wait for a timeout period to spend their funds again freely.
+
+This timeout period is called a *dispute period*, because it gives the channel partner a chance to dispute the channel close in the case of a breach of contract, when the channel is closed with an out of date balance of payments.
+
+## Potential Issues
+
+There are a number of challenges inherent in the Lightning Network concept. In the most marked change from the Blockchain, Lightning flips the configuration of the network from a single shared Blockchain ledger to a wide array of individualized Lightning client ledgers. Users holding Lightning Network funds are holding funds that are just as good as Bitcoin, but the funds are actually signed claims on funds.
+
+In the Blockchain a global ledger state is synced between everyone and a user must only save their private keys to retain control of their funds. In Lightning, securely holding both the key data and individualized ledger data is the responsibility of the client. One solution to this issue is to use the saved keys to securely encrypt the state data and then save the encrypted data to a networked backup.
+
+Another departure from the Bitcoin network model that requires careful consideration is that Lightning transactions do not need to be broadcast to every member by relaying others transactions. Given a more limited number of transactions that are sent, this reveals more information as to the identity of the sender. To solve this, Tor channels could be used to obscure IP information from channel partners, but a more comprehensive and as yet undefined solution may be needed to help obscure other correlation efforts.
+
+Funds in Lightning also work differently from Bitcoin funds. The Lightning channels lock the funds to an agreement with a Lightning relay, in which a set of cooperative rules are agreed upon to enable the Lightning protocol. But in the case of a cooperation failure, which can simply mean the connected Lightning relay suffering downtime, user funds will be locked from use for up to the preset lock time, which could be up to a week. To deal with this, it's suggested that the risk of locking be spread over multiple channels, or that a user be encouraged to limit their use of Lightning to smaller amounts of spending money. Spending down entire channels is also not an efficient use of Lightning, so that reinforces the idea of users separating their funds into spending money in Lightning channels and savings in traditional Bitcoin wallets.
+
+Another tricky issue with Lightning funds is that a channel partner may try to steal funds from the channel. Wallets must either be semi-regularly online to prevent that, or third parties must be available who can be relied upon to prevent theft. Theoretically, miners could also execute a theft directly, by gaining majority control of the network for the dispute period and blocking any breach remedy transactions from occurring, although some of the standard guards against miners taking that action would still apply, such as their general block reward incentives. This means that Lightning benefits from a decentralized set of miners and a set of users who are able to access the Blockchain cheaply to respond to breaches of channel contracts.
+
+There are actually two configuration types of Lightning, similar to how there are two common types of Bitcoin clients: light Lightning clients who only spend money occasionally, and full Lightning nodes who act as relays and comprise the body of the Lightning network. There is a benefit associated with running a Lightning relay: as transactions are passed through a relay, they carry a reward of small market-based fees. But there is also a potential cost with running a Lightning relay, these relays are software that must have the agency to move funds between their channels. Relays need to have some automated access to user funds, to complete the signatures needed for channel transaction routing. It is recommended that relay operators be sure to secure their systems from unauthorized access to protect the capital required to operate a relaying node. Lighter Lightning clients do not share this issue, by only connecting occasionally they may secure their funds in colder storage and through multi-signature setups, as is the standard for secure Bitcoin storage.
+
+## Links
+
+- **Lightning Network Paper**: https://lightning.network/lightning-network-paper.pdf
+

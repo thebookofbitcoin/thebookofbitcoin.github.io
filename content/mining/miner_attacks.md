@@ -1,0 +1,68 @@
+# Miner Attacks
+
+Bitcoin miners exist to solve two important problems: distribution of the currency, and ordering and placing transactions. In Bitcoin, all participants are equal in all ways, with these two exceptions: only miners are granted the power to print new currency up to a limit, and only miners can place and order transactions. The reasoning behind these powers is not arbitrary, it's because they are considered the best solution to problems that have no other better answer.
+
+Miner powers are in fact privileges, it's up to miners how they use them. The only guard against their abuse is simply a cost to the miner, and limited benefits to abuse. For example, a miner is responsible for printing new coins, but he may also refrain from printing them. This action would come at a cost to him, and only marginal harm would befall the network, so this is not a common nor fretted about scenario, but it is still possible and outside of the design of the intended network function.
+
+The privilege to order or refuse to place transactions is where a miner has the most possibility to abuse his power. There are two ways in which this might occur: in a reordering attack where transactions are reordered to carry out a fraudulent purchase, or in a denial of service attack where transactions are denied placement in the chain to disrupt or degrade the network.
+
+## Denial of Service
+
+Every day miners publish over a hundred updates to the Blockchain. In these updates, miners may publish whatever they like, although invalid updates will be dismissed automatically by the network. Miners can abuse their position by publishing invalid blocks, but those will be dismissed automatically by the rest of the nodes in the network. If they stop publishing valid blocks all at once, before the difficulty can adjust, it can act as a denial of service: the shock of not having as much hashing power may cause extended delays in the network, even potentially presenting a costly or involved situation to fix. This attack has been proposed by Gavin Andresen in various BIPs to be used as a forcing function to promote a contentious hard fork event.
+
+Miners can still abuse their position even if they stay within the network rules: they can simply prevent transactions from entering the Blockchain. There are two ways that miners can accomplish this prevention: a discretionary way and a forking way. The prototypical example of how this could deny service is that miners could prevent Satoshi Nakamoto's coins from moving, for as long as they controlled fifty one to hundred percent of the hash power.
+
+In the discretionary way, since miners can simply choose not to append a transaction to the Blockchain for any reason, they can simply choose a reason that goes against the best interests of the network, that is within their power. Miners are given various incentives to prevent this from happening: the marginal cost of adding transactions is designed to be as small as possible, miners are given rewards in a currency whose value is related to the network utility, and each individual transaction carries a reward. But simple physics implies that miners cannot mine every possible transaction, and the best interests of the network are amorphously defined, so the expectation is that they use good judgement. 
+
+Unless a large portion of miners exhibit the same anti-network behavior, this abuse is limited in its possible negative repercussions. In the Satoshi's coins case miners could only slow down but not stop Satoshi's spending because only a single miner would be necessary to disagree and include the transaction in the Blockchain. It would take every single miner exhibiting the same judgement to effectively stop the coins for as long as they maintained complete control of the hashing power.
+
+In the forking way of denying service miners extend their selective judgement not only to their own blocks, but to the blocks they choose to build on. If miners have fifty one percent of the network's hash power exercising this behavior, they can prevent even forty nine percent of miners from trying to include a transaction that goes against the majority policy. This is sometimes called a *soft fork*, although that typically refers to the case where the judgement of the miners is benign and also has the support of the greater network. The key difference is that a hostile soft fork may be repealed without any network impact, so even in the forking case the miners must still keep their majority for as long as they want their attack to have an impact.
+
+## Finney Attack
+
+In the early days of Bitcoin, much thought was given to best practices and ways to create optimal experiences for customers and merchants using the tools Bitcoin provides. One of the most difficult problems with making Bitcoin usable in merchant situations is that the process of confirmations is a slow one. In response to this issue, much thought was given to how to make the best of a difficult situation.
+
+One solution proposed and implemented on the network was a light weight way to prevent double spends: just make it a soft network policy to not allow them. For many situations, this method worked so well that some were led to believe it could essentially replace confirmations. But there are two places this system breaks: race attacks where miners are fooled, and attacks where miners take part, called *Finney attacks*. 
+
+When a miner carries out this attack, he simply broadcasts his merchant spend as normal to the network. The merchant hands over the goods, he walks out the door, and then publishes a block that he previously hid from the network that contains a transaction that nullifies the transaction he just broadcast to everyone else. Timed properly, under the right circumstances even a small minority hash power miner can execute this.
+
+The defense against this type of attack is to wait for confirmations. An unconfirmed transaction must always be seen as nothing more than a cheap non-binding promise, a motivated attacker can double spend unconfirmed transactions without a large cost.
+
+## Rearranging Attacks
+
+Miners with significant hash power under their control can even extend their ability to hide blocks and then suddenly rewrite history to transactions with multiple confirms. This re-writing ability becomes less costly with a greater amount of hash power controlled. For example, a miner with twenty percent hash power would have [a one percent chance](https://bitcoil.co.il/Doublespend.pdf) to nullify a transaction with six confirmations.
+
+The defense against this type of attack is for a merchant to consider the cost of this attack's execution. To carry out a six confirmation attack, a miner must forgo their opportunity to cooperate with the network, a decision that carries an opportunity cost of all of the block subsidies and fees they might have otherwise earned. Another potential opportunity cost to a miner carrying out this attack is the reduction in the valuation of future rewards: shaking confidence in network confirmations is unlikely to increase the value of the future miner rewards that are denominated in Bitcoin or a function of a healthy Bitcoin system.
+
+## 51% Attack
+
+Rearranging attacks are also sometimes called *51% attacks*, but reordering does not require fifty one percent of the hash power to succeed. The source of this confusion is that while minority hash power attackers can only succeed some of the time, a majority hash power can succeed all of the time: they have a one hundred percent chance of being able to rearrange a number of transactions that is only limited by the time they are in control of the majority of hashing power.
+
+This attack is the biggest source of risk in the entire Bitcoin system. Accepting a transaction, even from a trusted source, may be rolled back through this attack. Various precautions are given in the system. It is important to note however, this attack does not give the attacker the right to reclaim coins that never belonged to him. He can only rewrite his own personal history, or make rule changes to the network, or do anything except carry out the rearranging attack with a surety of success.
+
+Another mitigating factor to this attack is that a 51% attacker can pull of a different attack where they dominate mining and claim all block rewards, simply orphaning the minority miners. Since this attack would be less damaging to Bitcoin it is considered a more profitable way for a miner to attack this way, so in not choosing this method the miner incurs an opportunity cost.
+
+## Network Partition Attack
+
+For a miner who may control network topology, an attack may be carried out where the miner targets nodes to partition them away from the longest chain, in what is called a *network partition attack*.
+
+The attack may even be applicable in a naive double spend attack for a merchant who accepts an unconfirmed transaction, targeting the merchant node to show it a transaction that appears likely to confirm, but preventing that transaction from being transmitted to anyone but that node, and instead transmitting a double spend to the greater network.
+
+Naturally, merchants are directed to never accept unconfirmed transactions, preventing that simple version of a partition attack, however a miner may achieve the same thing, creating false confirmations. The miner simply makes a shorter chain, ignoring longer real blocks, and presents the shorter custom chain to the partitioned node. Any level of hash power might accomplish this, given enough time. This serves as a proviso to the *longest chain is secure* rule. Since information is not perfect, it may not always be apparent to a merchant what the actual longest chain is.
+
+The attack requires perfectly isolating the target merchant node. A single relaying node passing the longer chain is enough to override all other nodes due to the proof of work check that measures only hash power and not node count. With low hash power attempting this attack, merchants must also ignore warnings that the apparent hash rate of the network has dropped dramatically which is an easy tip-off to being isolated. The principle that prevents this attack is that information is difficult to suppress, especially when it very small and easy to verify and freely and routinely copied and distributed to thousands of nodes around the world.
+
+Adding to the difficulty of the attack, merchants are advised to keep their node IPs secret. Tor may be used to prevent direct targeting. Known trusted nodes may be deliberately added to a merchant's node through Bitcoin Core configuration options. Bitcoin Core will also connect automatically to a very wide range of IP addresses, meaning an attacker must control partitioning nodes across many IP ranges. Another layer of defense is in the way that the node list is seeded: Bitcoin Core developers individually operate seeding node lists, based on their own nodes and nodes across the network. These seed lists are automatically used when Bitcoin Core nodes first initialize.
+
+## Consensus Change Attack
+
+Changing consensus rules through 51% attack is considered impossible because the other network nodes will not accept a block that falls outside of the known consensus rules. The double spending attack can occur because there is no possible way for nodes to reject blocks that contain double spends: there is no higher authority than the Blockchain when it comes to ordering. 
+
+But not all consumers of mined blocks are as protected from a 51% attack as network nodes. Some consumers, such as many clients commonly known as *SPV clients*, accept even rule breaking transactions a 51% attacker produces. This gives another great benefit to a 51% attacker, he can change the fundamental rules of the system indefinitely, to his benefit. With this power, a 51% attacker can even print money beyond the limits of his purview, setting the coin limit to whatever he wishes, and assigning the excess to himself. He can spend others' coins, he can accomplish a very wide variety of damaging attacks. This type of attack has actually been controversially proposed by Gavin Andresen as a way to institute changes in the network consensus rules, by deceiving light clients into believing nothing has changed.
+
+To mitigate this attack, it is recommended to all merchants and even all users who receive Bitcoin, to always use a fully validating node when receiving funds. Not using a light or otherwise non-validating client is the only way to proactively prevent or actively stop a 51% attacker from arbitrarily changing the rules of the system.
+
+It has been proposed by many, including Satoshi Nakamoto in the original Bitcoin white paper, that additional mitigating defenses be instituted to defend against this potentially devastating attack. However the proposed defenses are difficult to create and since running a full node is all that is necessary to mitigate this attack, the proposed defenses have not been instituted to date.
+
+Another strong mitigation against this attack is again the future opportunity cost of the network being healthy. An attacking miner who executes a 51% attack to incur a great cost to users may also be damaging his future profits in the process. However this is only broadly true, a 51% attacking miner might execute an attack that the market feels is acceptable given the disrupting alternative of attempting to change the set of miners or cease transacting, and thus it is possible for a majority miner to abuse this method and suffer only a minor or even zero future opportunity cost.
+

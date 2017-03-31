@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="bitcoin-core">Bitcoin Core</h1>
+<p><strong>Bitcoin Core</strong> (also known as Bitcoin-Qt) is the cross-platform MIT licensed wallet application of the Bitcoin Core project, which is seen as the reference implementation of Bitcoin and also acts as an all-in-one peer to peer node.</p>
+<p>Satoshi Nakamoto originally coded a graphical wallet application for Bitcoin using the wxWidgets interface library in the wallet known as <em>WxBitcoin</em>. Over time the Qt library was recognized as a better option, and Wladimir J. van der Laan created <em>Bitcoin-Qt</em>. Bitcoin-Qt was later renamed to Bitcoin Core in <a href="https://bitcoin.org/en/release/v0.9.0">March of 2014</a> as part of an overall brand clarification.</p>
+<p>Since April of 2014, Wladimir J. van der Laan has acted as the project maintainer for Bitcoin Core.</p>
+<h2 id="data-directory">Data Directory</h2>
+<p>Bitcoin Core stores the blockchain data and wallet data in a placed called the <strong>data directory</strong>. </p>
+<p>Directory Locations:</p>
+<ul>
+<li><strong>Linux</strong>: ~/.bitcoin/</li>
+<li><strong>OSX</strong>: ~/Library/Application Support/Bitcoin/</li>
+<li><strong>Windows XP</strong>: C:\Documents and Settings\$YOUR_USER_NAME\Application data\Bitcoin (Windows XP)<ul>
+<li><strong>Windows Visa, Windows 7+</strong>: C:\Users\$YOUR_USER_NAME\Appdata\Roaming\Bitcoin (Windows Vista and 7)</li>
+</ul>
+</li>
+</ul>
+<p>Directory files and folders:</p>
+<ul>
+<li>.lock : locking file for BerkeleyDb</li>
+<li>bitcoin.conf - optional configuration file for command line options</li>
+<li>blocks/ - contains the raw block data, a LevelDb indexing database</li>
+<li>database/ - contains the Berkeley Db journaling files</li>
+<li>debug.log - tail of Bitcoin Core&#39;s log</li>
+<li>fee_estimates.dat - cache of fee analysis data</li>
+<li>peers.dat - cache of network peers</li>
+<li>wallet.dat - data file for private keys, user wallet data. <strong>Back this up!</strong></li>
+</ul>
+<p>Copying the blocks and chainstate directories to improve sync times on a machine that has not yet synced, however no third-party database files should be used, only files from another trusted machine. When performing this copy, both installations of Bitcoin Core should be off.</p>
+<h2 id="backups">Backups</h2>
+<p>It&#39;s a very good idea to back up the wallet.dat file that is found in the Data Directory. This wallet file includes all the private keys that are required to restore the wallet funds in the case of hardware failure or loss.</p>
+<p>Originally it was required that the wallet file backup be refreshed with ever new receipt of funds, later Satoshi Nakamoto added a <em>key pool</em> feature that pre-generated many private keys so that funds would be securely backed up within the key pool window.</p>
+<p>By default the key pool is set to pre-generate one hundred keys, this may be increased using the command line option <em>keypool</em> or adding a line with keypool=# to the bitcoin.conf file, however creating large numbers of keys may be a slow operation, so the limit defaults to one hundred.</p>
+<h2 id="fixing-stuck-transactions">Fixing Stuck Transactions</h2>
+<p>It is possible that through manually overriding the recommended fee settings, or using an out of date version of Bitcoin Core, that a transaction may become <em>stuck</em>. A stuck transaction means that no miner is interested in adding the transaction to their block due to a fee that is out of line with their fee policies.</p>
+<p>To remedy this situation, there is a function accessible in the Bitcoin Core debug console called abandontransaction that can command Bitcoin Core to forget about a stuck transaction. This will allow the user to reuse the funds they were trying to send with the stuck transaction in a new transaction with more attractive fees.</p>
+<p>The function only works on transactions that are not currently in the mempool, so it may be a good idea to temporarily add maxmempool=5 to the bitcoin.conf file or use that argument on the command line when starting Bitcoin Core to make sure that the transaction is absent.</p>
+<p>Another method to resolving stuck transactions is to use the zapwallettxes configuration option, either in the bitcoin.conf file or as a command line option when starting Bitcoin Core.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><strong>Repository</strong>: <a href="https://github.com/bitcoin/bitcoin">https://github.com/bitcoin/bitcoin</a></li>
+<li><strong>Website</strong>: <a href="https://bitcoincore.org/">https://bitcoincore.org/</a></li>
+</ul>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/software/bitcoin_core.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

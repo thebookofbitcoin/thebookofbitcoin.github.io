@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="gbt">GBT</h1>
+<p>The getblocktemplate protocol, or <strong>GBT</strong>, is a decentralized mining protocol that was developed in 2012 by Luke-Jr as a modern successor to the dated getwork protocol. The design of GBT gives contributing pool hashers more individual control over the blocks they are contributing towards. This is seen as desirable because it distributes the network mining authority more widely, instead of simply amongst a small set of mining pool operators.</p>
+<p>Not many pools support the protocol, but there are two pools where it can be used: Bitminer and Eligius.</p>
+<p>The protocol uses a series of JSON requests to work through the mining process. First the hasher gets the basic block template to start work against. Then, unlike in a centralized mining pool configuration, the hasher individually goes through all the transactions they have verified to include in the block, building the transactions&#39; merkle root signature to use for their block hash. The hash of all the transactions is then combined with the block template to create the block header to hash against. While hashing, a hasher can request that new transaction data be signaled to him so that he can recalculate the transaction merkle root.</p>
+<p>The origin of this protocol was in improvements forrrestv made so that P2Pool could use getmemorypool over JSON-RPC to allow decentralized miners to add transactions to their blocks. Luke-Jr expanded on that work to provide a solution for his Eligius pool, and created a solution that served as a simple compromise between centralized pools and a new system like P2Pool. Luke over time has tried to promote the broad use of GTB by standardizing the concept in <a href="https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki">BIP 22</a> and <a href="https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki">BIP 23</a>, and by creating open source software to make its use easier.</p>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/mining/gbt.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

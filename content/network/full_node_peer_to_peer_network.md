@@ -1,0 +1,72 @@
+# Bitcoin Full Node Peer to Peer Network
+
+The purpose of full nodes in the Bitcoin network is manifold. They exist as sovereign arbiters of the true state of the currency, they welcome new entrants into the network by sharing the history of the shared ledger, and they work together to spread new transactions to every corner of the earth.
+
+There are many ways to use Bitcoin that do not require the use of a full node, however a full node describes something that offers the best level of security and privacy. As long as it is practical to use a full node, it's strongly suggested that one be used.
+
+The precautionary suggestion to use a full node is one in which the user must be proactive about their own safety. The safety recommendation is analogous to wearing a seat belt in a car, or using a prophylactic device in an amorous encounter. Following a general guideline for safety that incurs some unwanted cost might not be immediately obvious, but on sober reflection of all the risks ignoring the guideline can be seen to be a mistake.
+
+## Strength in Numbers
+
+The link between Bitcoin's health and the health of the full node peer to peer network is often stated. This is because a distributed network of redundant peers is seen as the most durable configuration possible. Thousands upon thousands of full nodes give strength to the network through herd protection. To sever a geographic link to the network, every node in the geographic area would have to be terminated, even a single remaining node could bridge the replication gap. It is seen that every additional user running a node translates to another brick in the wall keeping the network alive. 
+
+It's hard to determine the exact number of nodes on the network at any given time, because the network is designed to be distributed and decentralized, with each node giving thought only to its connected peer nodes and not the greater network. Despite this design, services exist to attempt to map the nature of the network by deliberately attempting to connect to as many peers as possible. These services are easily misled by fake nodes, and they cannot easily connect to the vast majority of nodes behind firewalls or with other limiting factors, so their published data must be treated as suspect.
+
+## Node Cooperative Contribution
+
+Nodes in the network act in a peer to peer way, meaning that they act as servers and clients. Acting as a client is a baseline requirement for every node, however some nodes can limit the ways in which they act as servers, to limit their costs or for other reasons. In a network of full nodes, the level of server-like nodes is not important beyond a certain degree due to the great level of redundancy and the low demands full nodes place on the network. Just like almost any server and client split network topology, clients may outnumber servers greatly without any ill effects.
+
+There are a variety of methods in which a node may act as a server: relaying transactions and blocks, catching up other nodes on Blockchain history, helping peer discovery. Generally speaking, contributory full nodes service two types of clients: other full nodes, and light clients.
+
+A full node server serving other full nodes generally speaking has very light requirements. Full nodes have very limited demands because they only require a tiny differential sync from their current state. This differential sync cost is easily covered by the altruism of other nodes, in a model generally seen as sustainable to a large degree.
+
+A full node servicing light clients, also known as *SPV clients*, has a much more costly set of requirements. Light clients cannot query their own local data set and thus require syncs tasks which carry a high marginal cost in both networking and system resources. Covering this cost through generalized altruism is not seen as sustainable, so most light clients have moved to a model of querying more formalized servers instead of the network at large.
+
+## Full Nodes Promote Privacy
+
+An important element of Bitcoin as a unit of account and a convenient medium of exchange is that every single unit of Bitcoin is equivalent to every other unit. If some coins became more valuable than other coins, despite their face value, it would make for a confusing and therefore lower utility experience in exchanging them. 
+
+Unfortunately, Bitcoins are implemented in such a way that every Bitcoin balance is accompanied by a wealth of metadata relating to its origin. This represents a risk to every unit being exchangeable for every other unit, also known as the fungibility of the currency. Coin metadata represents a risk to the coin owner's privacy that can have unwanted negative secondary consequences, such as being accused of being linked to a theft through the web of transactions.
+
+Full nodes uniquely help the network and the user from this negative privacy outcome by carefully protecting the metadata surrounding balances and transactions. In wallets that do not sync the entire Blockchain, they must query outside third parties for information about the funds they control. This querying represents a leak of information: information that can link multiple addresses together, can link Bitcoin addresses to IP addresses, funds to identities and actions that tar the theoretically neutral value tokens with a harmful history of their use.
+
+Bitcoin full nodes can even take obscuring metadata one step further, severing even the link of IP address to Bitcoin full node and transaction relaying by automatically detecting a local Tor connection and then rerouting connections using Tor to provide for the privacy of the node.
+
+## Full Node Validation Security
+
+The security of a user's funds and exchanges using Bitcoin is guarantees by a set of rules that govern how Bitcoin works. These rules describe things like the total possible number of coins in the system, or the *coin limit*, which promotes the utility of Bitcoin as a scarce tradable commodity. People are incentivized to use full nodes to remove their risk of these rules being broken, and this also serves to limit the impact of rule breaking: validating nodes will refuse to relay and spread invalid data.
+
+Other notable rules are the *subsidy schedule*, which describes how quickly the currency can be minted, *double spending*, which prevents a user from spending the same funds in two places, *signature validation*, which prevents unauthorized users from spending others' funds, the *block size limit* which promotes network durability by preventing network denial of service deliberately or indirectly, and *Bitcoin script execution*, which evaluates intelligent rules for spending coins, like the *CLTV* which prevents funds from being spent until a certain time.
+
+The validation that a full node performs is complete and total. Every single piece of data supplied by a third party is checked, so that even if all information a full node receives is supplied by a malicious attacker, they cannot create any negative results by manipulating the supplied data. The one exception to this rule is a situation in which the full node itself is running on a compromised platform. Therefore it is considered that the most secure practice for using Bitcoin is to only run a Bitcoin node on a platform known to be secure: third party platforms like cloud services where trust is an unknown factor are not recommended.
+
+Due to the stringent checks performed by full nodes rule violations are few and far between. However rule violations, even by miners, are not unknown, for example in [July of 2015](https://bitcoin.org/en/alert/2015-07-04-spv-mining) invalid blocks were published to the network in multiple incidents. This proves in practice what is obvious in theory: data from third parties, even miners who are strongly incentivized to publish valid data, can at times be invalid, either maliciously or through simple error. A full node's validation mechanisms will automatically ignore invalid data from any source, even a miner, unlike many alternatives to a full node that offer reduced levels of validation.
+
+## Full Node Code Security
+
+When selecting a wallet, important consideration should be given to the authorship of the wallet. Is the wallet open source? Has the code been reviewed? Has there been thorough security testing? Examining the methodology in developing and releasing a wallet can help prevent the use of malware that abscond with user funds, or buggy prototype wallets that lose coins through simple coding errors.
+
+Bitcoin Core as the Bitcoin *reference client* represents a very thoroughly vetted wallet. The code produced by Bitcoin Core is seen by many eyes, the scope of the wallet is narrow and focused, the users of the wallet are wide and varied. Bitcoin Core is designed as a comprehensive client, meaning it should be seen as comprehensively reliable, and the code should be seen as thoroughly vetted and secure. These qualities help make Bitcoin Core a very attractive choice for security conscious use.
+
+## Altruism in Full Nodes
+
+The Bitcoin network relies upon having some nodes to bear some costs without direct recompense. This mechanism generally relies upon altruism and default behavior. It's well understood that this is a weak mechanism, but realistic given a limited cost: some percentage of users of Bitcoin Core who are not inconvenienced by the limited costs of default altruism will not adjust their default settings and some percentage of Bitcoin users can be expected to even go out of their way to assist others in the network.
+
+This system works because the cost of altruism is capped. Servicing the requests of other nodes can be extremely inexpensive, running a node from home barely carries a negative impact: through the effort of many hands light work is made of the task of keeping the network running.
+
+## Efforts to Reduce Node Operational Cost
+
+Creating a positive result in the cost benefit analysis of running a full node can be attacked from both sides: cost and benefit. The benefits of running a full node are great: financial privacy, security, self-determination, and altruistic fulfillment. But if the costs of running a full node outweigh those benefits, a user may not pursue the full node path, leading to their sacrifice of those potential benefits and the networks' loss of the marginal durability value they represent. For this reason, minimizing node cost has been a strong priority of the Bitcoin Core project: CPU, memory, disk storage, bandwidth have all been heavily optimized over many years of work.
+
+One oft lamented cost center of Bitcoin Core is the cost of storing the Blockchain, the entire history of transactions. The Blockchain network design calls for this shared history to be stored in a distributed fashion, but its growth to tens of gigabytes of data over the years has made that burden something of a hot potato. To address this, in Bitcoin Core version 0.11.0, a major new feature was added to reduce this burden by eliminating archival data, in a feature known as *pruning*. Pruning turns the storage burden of tens of gigabytes of Bitcoin data into a small two to three gigabyte task, even pruning progressively on initial syncs. Pruned nodes cannot help catch up other nodes, but they can still help the network stay in sync with the all important trailing differential that is all that caught up full nodes nodes require.
+
+Another great technical barrier to syncing the Blockchain is the CPU cost of validating the cryptographic signature that accompanies every movement of funds. Marginally a signature cost is small, but the impact of tens of millions of transactions means that syncing the chain is a lengthy task even for the most powerful computing devices. To address this the Bitcoin Core developers worked for many years on an optimized version of their signature algorithm, resulting in the highly optimized libsecp256k1 signature library. This library was put into full use in Bitcoin Core version 0.12.0, resulting a massive seven hundred percent improvement in signature validation speed, making Blockchain sync much more accessible to a wider range of users and devices.
+
+Bitcoin transactions have a limited memory footprint: at the median transaction size a single transaction requires about the same amount of memory as two Tweets. Thousands of transactions can fit in active memory without issue. Even with transactions' limited memory footprint, memory utilization still represents a significant cost center for some users, or in some unlikely but possible scenarios where unconfirmed transactions rise to extremely high levels. To address this memory usage issue, Bitcoin Core added a discrete limiter: the mempool size option. This makes the trade-off of ignoring unlikely to confirm transactions for the benefit of allowing a fixed cap on full node memory demands.
+
+To address bandwidth costs, Bitcoin Core added an upload limiter to put a cap on upload bandwidth, and a new *blocksonly* configuration option that limits the download bandwidth requirement to a maximum of about two thousand bytes/second, well within reach of even a standard dialup modem.
+
+In addition to optimizations to reduce the marginal burden of transactions, optimizations were also made to lift the weight of the initial Blockchain sync. After users began to be forced into using BitTorrent to perform the initial sync of the large Blockchain data files, Bitcoin Core developers integrated a superior solution into Bitcoin Core itself, in a mechanism called *headers-first* sync that removes the bandwidth bottleneck to an initial sync. The initial sync may also be sped up by adjusting the dbcache option which allocates the syncing Bitcoin Core process additional memory beyond the low impact defaults of a standard Bitcoin Core install.
+
+Beyond all these options stands a general firewall to the cost of a full node. This firewall is known as the *block size limit*, and it puts a hard cap on the introduction of new costs on a node. Not all costs are limited by this, for example the set of transactions that are kept in memory instead of on disk or pruned is not strictly limited, only at a gross level does the block limit apply in that case. But generally speaking, the block limit is a general, final limit that protects the full node peer to peer network, and thus Bitcoin's durability, by promoting a low barrier to entry and thus a diverse and wide set of participants.
+

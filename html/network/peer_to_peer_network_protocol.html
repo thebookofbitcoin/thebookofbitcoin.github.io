@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="bitcoin-peer-to-peer-network-protocol">Bitcoin Peer to Peer Network Protocol</h1>
+<p>The Bitcoin network is designed to operate in a peer to peer configuration, in a reflection of the overall decentralized design of the system. The network goal is to sync the Blockchain, the transaction record and payment settlement system through which Bitcoins are minted and exchanged with Bitcoin users. A high level view of the network is that of a wide array of individual peers, each helping to broadcast updated Blockchain information across the entire group.</p>
+<p>The broadcast sync of the Blockchain and the network setup and operational action are accomplished through a narrow network protocol, consisting of a small set of messages. Most messages are designed with pushing data in mind, to continue to propagate waves of updated Blockchain and peer data to local peers and across the greater network.</p>
+<h2 id="connecting">Connecting</h2>
+<p>All Bitcoin network communication occurs using TCP, the standard Internet protocol for reliable networking. Bitcoin has supported the IPv6 standard since September of 2012, and can be used over a user selected port, with the default being 8333.</p>
+<p>When a Bitcoin node is instantiated for the first time, it needs to find a way to connect to the greater network. At the start of the project, new nodes would automatically connect to a hard-coded IRC server, with IRC channels being used to publish and discover IP addresses of network nodes. This bootstrapping process was created in 2011, complementing the IRC system it would ultimately wholly replace. In this system hard-coded DNS address based seeds are resolved to the IP addresses of seed nodes to direct a new node onto the network. Since 2012 Bitcoin Core developers Luke-Jr and Pieter Wuille have operated seed nodes, along with various others over the years.</p>
+<p>When connecting to a node IP, a Bitcoin node will send its version as the initial message, in a handshaking process where information about its makeup including its current clock value is published to the remote node. The specific messages used are <em>version</em>, which sends the node information, and <em>verack</em>, which acknowledges the receipt of the version information. This handshake helps a node define a normalized network clock value: time calculations a node makes are based not off of its own clock, but rather the median time from all successfully connected peers.</p>
+<p>After the initial bootstrapped connection onto the network, previously connected-to peers as well as relayed known local active peer information is cached. Nodes are designed to recall other nodes in an archival list. This list of node IPs is cached in order to bypass the node seed stage on subsequent starts. On each network join, a node will consult its cache of nodes, semi-randomly selecting nodes to attempt to connect to, with a prioritization of most recently active.</p>
+<h2 id="syncing">Syncing</h2>
+<p>Once nodes have successfully joined the network, they are then faced with their primary task of syncing the Blockchain. The workhorse message that helps a node accomplish this task is the <em>inventory</em> or more precisely <em>inv</em> message, which a node uses to push listings of blocks and transactions to connected peers. Inventory messages are simply concise high level identification information, they do not carry any information beyond a listing of blocks and transactions. These messages are published constantly, as novel blocks and transactions are validated and then pushed to other peers to relay the new information.</p>
+<p>Specific inventory messages may be requested directly from a connected peer using the <em>getblocks</em> message that queries about a specific set of blocks. This message is used to sync nodes that are out of date, such as nodes that are new to the network and must sync the entire blockchain through a long series of <em>getblocks</em> requests.</p>
+<p>When an inventory message is received, listed inventory of blocks and transactions may be requested through the <em>getdata</em> request. This is generally performed when a node receives an inventory message containing novel block or transaction information. In response to the <em>getdata</em> response the node returns with a <em>block</em> or <em>tx</em> message, sending blocks and transactions respectively.</p>
+<h2 id="syncing-to-light-clients">Syncing to Light Clients</h2>
+<p>Full nodes may also service the syncing needs of light clients, which some call <em>SPV</em> clients after a general proposal made by Satoshi in the original Bitcoin whitepaper. These clients avoid validating the blockchain to provide a more practical user experience at the cost of incurring counter-party risk of an abusive miner or set of miners.</p>
+<p><em>Filter</em> message features so that full node could service requests for light clients were added through <a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki">BIP 37</a>. Light clients uses the <em>getheaders</em> message to request that full nodes return Blockchain headers information which are sent using the <em>headers</em> message. The chain of Blockchain headers are used to piece together the chain with the greatest proof of work. This is used to verify transactions as being on the longest chain of blocks, with the important caveat that it may be an invalid chain.</p>
+<p>Light clients also use bloom messages to request transactions that they care about, they do not ask directly for transactions in an effort to add some slight privacy to the client&#39;s financial status, however these efforts have only a small impact and are not comprehensive.</p>
+<h2 id="peer-announcements">Peer Announcements</h2>
+<p>In addition to syncing the Blockchain, the Bitcoin network syncs information about the IP addresses that comprise the network, to provide for sustainable connectivity. Nodes publish to other nodes the set of active peers they know about using the <em>addr</em> message, which can contain a list of up to a thousand known active nodes. Nodes can also ask other nodes for an <em>addr</em> message using a <em>getaddr</em> message. Every twenty four hours every node will broadcast a heartbeat <em>addr</em> message, which is passed along to two connected nodes.</p>
+<p>General network connectivity may also be tested by a node using the <em>ping</em> message, which does nothing other than attempt a connection to verify connectivity.</p>
+<h2 id="obsolete-messages">Obsolete Messages</h2>
+<p>In the original Bitcoin protocol, support was present for an IP based sending system. The concept allowed connecting to a node directly to make a transaction. To accomplish that task nodes used messages that were later deprecated and removed. IP based sending was eliminated very early on due to security, privacy, and practicality issues.</p>
+<p>Although the Bitcoin network was designed as a group of headless automatons, early in its life various critical defects were found that required aggressive central action to remedy. As a practical solution to facilitate the rapid deployment of requisite fixes, Satoshi Nakamoto devised an alerting system for sending version update messages across the node network.</p>
+<p>This system used a protocol message called <em>alert</em> to directly broadcast a signed message from Satoshi, to be shown to users to inform them of critical information. To avoid a singular dependency Satoshi shared the signing key with others, which over time became an unnecessary risk to the network. In April of 2016 the release of Bitcoin Core version 0.12.1 eliminated the alert system.</p>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/network/peer_to_peer_network_protocol.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

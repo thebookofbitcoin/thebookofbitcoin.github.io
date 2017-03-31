@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="transactions">Transactions</h1>
+<p>The Bitcoin Blockchain serves Bitcoin by generating the supply of coins and facilitating their trade, along with standard Bitcoin trades between users. When transacting on the Blockchain, an atomic unit of transacting called a <em>transaction</em> serves to move funds. All fund movements on the Blockchain occur through transactions. In fact transactions are the sole record stored in the Blockchain, there are no balances or accounts, only chains of transactions between all the Blockchain users.</p>
+<p>Transactions themselves are simple short programs called <em>smart contracts</em> which define the source and destination of funds, plus the restrictions and authorizations regarding their transfer. At a simplified high level a transaction smart contract says, &quot;the funds that are provably certified to be moved may be used to fund to another party&#39;s re-spending of the funds given their own provable certification restriction&quot;. The set of transactions forms a one way chain of spending from first the generation of every coin to the final owner or owners.</p>
+<p>Only Bitcoin miners may include transactions into the Blockchain record, through the proof of work system that prevents arbitrary updating of the widely synced record. To submit transactions to the miners any method may be used to convey the data, but most commonly the transactions use the broadcast system of the Bitcoin peer to peer network to send a transaction in its initial unconfirmed state to the network peers who wish to sync unconfirmed transactions. Miners listen to this network for unconfirmed transactions, selecting the ones they see fit to include in their updates to Blockchain blocks, restricted by the network consensus rule regarding block size maximum transaction data.</p>
+<h2 id="transaction-formation">Transaction Formation</h2>
+<p>Transactions contain funding inputs to fund the transaction and funding outputs to direct the funds to new ownership. To transmit funds with a transaction, a Bitcoin wallet selects a previously unspent transaction output from a previously received transaction to use to fund a new transaction, turning those unspent outputs into spent outputs and new transaction inputs. Bitcoin wallets aggregate and hide this detail, showing users a simple total balance reflecting the sum of unspent transaction outputs, automatically selecting previously received transaction output funds when forming new transactions.</p>
+<p>Previously received transaction outputs may only be spent in full in a transaction: it&#39;s not possible to take a partial amount of spent funds. Transactions take the pool of funds created by the transaction inputs to allocate funds to three possible output types: third party destinations to send funds to, <em>change</em> destinations to receive change back from the overflow of unspent output value, and a miner fee, which is indicated by the overflow of unspent output value that is unassigned in third party destinations and change destinations. For privacy reasons, wallets attempt to make change destinations and third party destinations look as similar as possible. </p>
+<p>Funds leading into a transaction and funds leading out of a transaction are not linked together, except broadly given that the input funds live together with the output funds in the transaction. Three sources of funds may go into a transaction and three sources exit a transaction, but with no links determining which funding source went to which new owner defined by each output. This feature is sometimes used by the CoinJoin system to collaboratively form transactions between many people to weaken privacy-reducing analyses of input and outputs.</p>
+<p>There are many building blocks in transaction programs, but the most important are signatures and public keys. Public keys are used to prove ownership of funds used as transaction inputs, a cryptographic signature proves the public key identity has the authority to persist the transaction in the Blockchain, moving funds.</p>
+<p>When evaluating transactions, full nodes look at the inputs, which reference previous transactions. They evaluate the previous transaction&#39;s preconditions for spending funds: does the new transaction contain cryptographically correct authority to spend the funds as outlined in the previous transaction? The authority to move funds is defined in a simple programming system, a straightforward stack of operations that combine conditions, supplied data and operations.</p>
+<p>The stack based language is simplistic, similar to the PostScript language which is a standard language for defining visual documents. The verification step is also simplistic, each address to send to marks an unfulfilled signature that is fulfilled when funds move. These programs that define the smart contract only execute when the transfers are validated to move funds to the next contract, and the programs simply define a true or false result, true results being required to move funds and false to reject and prevent the relaying and Blockchain inclusion of transactions.</p>
+<h2 id="transaction-types">Transaction Types</h2>
+<p>In standard transactions, called <em>pay-to-pubkey-hash</em> transactions, or <em>P2PKH</em>, or <em>1xx</em> transactions, the process for proving ownership of coins and authority to spend them is extremely simple. Bitcoin&#39;s basic scripting primitives take the address represented as a public key hash, indicating that the funds are locked to the owner of the public key. The transaction to unlock the funds is simply the presentation of the public key to match the hash, plus the signing proof of the public key authorizing the fund transfer.</p>
+<p>More involved transactions use a second, newer, BIP16 defined, type of transactions known as <em>pay-to-script-hash</em>, or <em>P2SH</em>, or <em>3xx</em> transactions. These transactions take addresses representing the hash of an arbitrary script defining merely the signature of a hidden contract. To spend these funds, the spender presents a script matching the hashed address, evaluating to true based on supplied data, such as within the common multiple-signature transaction type. Because these transactions reflect an arbitrary script instead of a fixed public key hash, the script may lock funds in extremely flexible arrangements: multiparty signature locks, time locks, and other future operations as they are added to Bitcoin&#39;s consensus logic rule set.</p>
+<h2 id="coinbase-transactions">Coinbase Transactions</h2>
+<p>Each block in the shared Blockchain collection of transactions includes a special transaction as the first transaction in the block, known as the <em>coinbase transaction</em>. These transactions, created by miners through <em>mining</em> or <em>generation</em>, are allowed to create an input that takes funds from the funding overflow of a block, defined by all the excesses of any block transaction inputs not spent by their outputs, also known as fees, plus the block subsidy, a longstanding but exponentially decreasing sum used to mint and distribute the money supply over one hundred years.</p>
+<p>The input of a coinbase transaction does not have a script signature in its input, it has arbitrary miner chosen data, plus the difficulty target and a random <em>nonce</em> value called <em>extraNonce</em> used when mining to advance to a new set of hash possibilities for the proof of work mining system.</p>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/transactions/transactions.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

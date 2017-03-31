@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="dos-vulnerabilities">DoS Vulnerabilities</h1>
+<h2 id="cve-2012-3789">CVE-2012-3789</h2>
+<p>In May of 2012, Sergio Lerner discovered and documented a pair of DoS vulnerabilities in Bitcoin Core - at that time called Bitcoin-Qt.</p>
+<ol>
+<li>Abusing a mechanism that cached transactions not connected to a block or a previous transaction to force increased memory utilization of a connected node by up to ten gigabytes.</li>
+<li>Abusing a mechanism that checked transaction history by crafting deliberately convoluted histories to require increased CPU utilization to a degree high enough to halt a node&#39;s operation.</li>
+</ol>
+<p>Versions 0.5.3 through 0.6.2 were impacted by the vulnerability, which was fixed in 0.6.3, released in June of 2012.</p>
+<h2 id="cve-2012-4683-cve-2012-4684">CVE-2012-4683, CVE-2012-4684</h2>
+<p>In August of 2012, Sergio Lerner discovered a DoS issue in full nodes that allowed abusing of the alert system to broadcast invalid alert messages that took enough time to validate that a node would cease to function. Another method of attacking the alert system was shown to abuse the incorrect way that the alert system packaged signatures, which allowed for fake alerts to fill connected node system memory endlessly.</p>
+<p>Versions 0.3.21 through 0.6.3 were impacted by the vulnerability, and it was fixed in Version 0.7.0, in September of 2012.</p>
+<h2 id="cve-2013-2293">CVE-2013-2293</h2>
+<p>In January of 2013, Sergio Lerner discovered a DoS attack vector against Bitcoin full nodes that allowed an attacker crafting large numbers of double spend transactions to force a connected node to use hard drive resources at a rate higher than expected.</p>
+<p>Versions 0.3.21 through 0.7.2 were impacted: the vulnerability was fixed in version 0.8.0. </p>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/network/dos_vulnerabilities.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

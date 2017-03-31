@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="hash-locked-transactions">Hash Locked Transactions</h1>
+<p>All Bitcoin transactions are actually short programs that each full node quickly executes to determine the validity of spending funds. When sending funds, a one way signature of the way the funds will be spent is sent to, constructed by the person or person receiving funds. There are generally two types of signatures or <em>addresses</em>, the standard pay to public key hash or P2PKH or <em>1xx</em> and the newer pay to script hash or P2SH or <em>3xx</em>.</p>
+<p>When spending funds sent to these addresses, the spender presents a new transaction with a new short program describing how he spends the funds, if the program executes successfully the transaction can enter the Blockchain. Inside these short programs are fund unlocking statements: simple very straightforward statements for standard addresses that merely confirm the signature of a private key, and more complicated statements for transactions that may include locking times, multiple signatures and other logic. Although it is technically possible to send funds to an address that may be unlocked by anyone, typically secret signature inputs are referenced as strict requirements to ensure the singular control of funds.</p>
+<p>Technically transactions unlock through a presentation of any unlocking statement. This means that even an arbitrary key may be used to lock funds, like the answer to a puzzle. This can be used to exchange payment for data, as long as the data desired can both be used to solve the puzzle and unlock a payment. These type of transactions locked by a signature hash are called <strong>hash locked transactions</strong>. To lock hash locked funds to a single party, multiple signatures are used ensuring that only the hash combined with a single party&#39;s signature may be used to move the locked funds.</p>
+<p>There are two types of hash locks possible in a hash locked transaction. One of these types is using a statement in which a trusted hash creator signs an attestation to a certain fact. This hash lock is called an <em>oracle</em>, the trusted service simply present signatures to attest to facts, which unlock transactions. The second type of hash lock does not require a trusted oracle, simply a computer program acting as a signature creating automaton. This type of hash lock is limited, given limitations on automatons, but strictly superior, given that no oracle may be trusted. It&#39;s even possible to produce an automaton that proves of the knowledge of an answer, instead of the answer itself.</p>
+<p>One issue with hash lock type payments is that when paying someone with the hash lock attached, does not guarantee that they accept the payment and publish the lock solution. This can create a deadlock where the funds sent for the solution are never claimed, but can also not be returned. To avoid this situation, it is recommended that hash lock transactions be accompanied with a timeout window using CSV or CLTV techniques.</p>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/transactions/hash_locked_transactions.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

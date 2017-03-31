@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="bitcoin-proof-of-work">Bitcoin Proof of Work</h1>
+<p>In adding to the transaction history of the Bitcoin Blockchain, also known as mining, a <strong>Proof of Work</strong> is the determiner for the individual mining node that is selected to append a block to the Blockchain. The specific proof of work Bitcoin was designed to use is called <em>hashcash</em>, which is a proof of work concept that was originally envisioned to limit email spam by imposing a rate limiting cost to send an email.</p>
+<p>The Bitcoin hashcash proof is basically a function that takes input data and returns an output signature.</p>
+<p>The input data supplied to the hashcash function includes:</p>
+<ul>
+<li>A piece of data to hash against called a nonce</li>
+<li>A pointer back to the previous block in the chain</li>
+<li>The current version</li>
+<li>A timestamp</li>
+<li>A counter</li>
+<li>A signature derived from all of the transactions in the block</li>
+<li>The consensus defined difficulty rating.</li>
+</ul>
+<p>The function uses a mathematical hashing formula called SHA256 to create a one-way signature of the input data. The formula is run twice: first on the input data, and then on the signature itself.</p>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/mining/bitcoin_proof_of_work.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

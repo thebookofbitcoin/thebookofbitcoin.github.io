@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="bitcoin-wallets">Bitcoin Wallets</h1>
+<h2 id="electrum">Electrum</h2>
+<p>The <strong>Electrum</strong> wallet is a project started in <a href="http://bitcointalk.org/index.php?topic=50936.0">November of 2011</a> to provide a powerful open source light client wallet. The Electrum project also includes a dedicated server that is used to provide service to Electrum light clients, Electrum clients do not connect to random full nodes as some other light wallets do.</p>
+<p>Electrum has proven itself to be a well maintained wallet that follows most best practices, wallets are encrypted, wallet data and private keys are only stored locally and never shared with third parties, keys are deterministically generated following the BIP 32 standard, servers are open source and can be self-run, updates are cryptographically signed and no updates or executable code is ever sent to clients.</p>
+<h3 id="links-">Links:</h3>
+<ul>
+<li><strong>Documentation</strong>: <a href="http://docs.electrum.org/">http://docs.electrum.org/</a> (warning: HTTP)</li>
+<li><strong>Repository</strong>: <a href="https://github.com/spesmilo/electrum/">https://github.com/spesmilo/electrum/</a></li>
+<li><strong>Website</strong>: <a href="https://electrum.org/">https://electrum.org/</a></li>
+</ul>
+<h2 id="greenaddress">GreenAddress</h2>
+<p>The <strong>GreenAddress</strong> wallet is a multi-sig accounts based wallet that offers a cross-platform and mobile solution for storing and spending Bitcoins. GreenAddress follows Bitcoin wallet best practices and modern standards: it is open source, multi-sig and supports BIP 32 HD key generation.</p>
+<h3 id="advanced-multi-sig">Advanced Multi-Sig</h3>
+<p>GreenAddress gets its name through its rethinking of a concept in which trusted entries might be specifically green-lit when sending funds to allow them to make faster off-chain transactions that eventually are trusted to settle on the Blockchain. To achieve this speed improvement, GreenAddress creates multi-signature wallets for users that are time locked into a two of two signature arrangement.</p>
+<p>Users cannot spend their money without GreenAddress co-signing, and GreenAddress works to create a reputation for themselves as refusing to co-sign any double spending attempts. If a merchant trusts GreenAddress, they can also trust that any transaction co-signed by them is not a double spend and allow an instant purchase. GreenAddress cannot spend funds without the cooperation of the user, and the user can use the time-lock feature of the wallet to exit with their funds in the case that GreenAddress stops cooperating. The multiple signature setup also serves as a security measure: coins cannot be spent without authenticating separately to GreenAddress.</p>
+<p>GreenAddress also offers a more traditional two of three multi-signature arrangement where no time-lock is needed so funds are always fully accessible to the user, but no trusted transactions are possible.</p>
+<p>For multi-signature authentication GreenAddress offers a variety of options: phone call confirmation, email, text message, and RFC 6238 time codes.</p>
+<h3 id="greenaddress-links">GreenAddress Links</h3>
+<ul>
+<li><strong>GreenAddress for Android on Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=it.greenaddress.cordova">https://play.google.com/store/apps/details?id=it.greenaddress.cordova</a></li>
+<li><strong>GreenAddress for Android on F-Droid</strong>: <a href="https://f-droid.org/repository/browse/?fdfilter=greenaddress&amp;fdid=it.greenaddress.cordova">https://f-droid.org/repository/browse/?fdfilter=greenaddress&amp;fdid=it.greenaddress.cordova</a></li>
+<li><strong>GreenAddress for Chrome on the Chrome Store</strong>: <a href="https://chrome.google.com/webstore/detail/greenaddressit/dgbimgjoijjemhdamicmljbncacfndmp">https://chrome.google.com/webstore/detail/greenaddressit/dgbimgjoijjemhdamicmljbncacfndmp</a></li>
+<li><strong>GreenAddress for Chrome for side loading on Github</strong>: <a href="https://github.com/greenaddress/WalletCrx/archive/master.zip">https://github.com/greenaddress/WalletCrx/archive/master.zip</a></li>
+<li><strong>GreenAddress for iOS on the App Store</strong>: <a href="https://itunes.apple.com/us/app/greenaddress/id889740745">https://itunes.apple.com/us/app/greenaddress/id889740745</a></li>
+<li><strong>Repository</strong>: <a href="https://github.com/greenaddress/">https://github.com/greenaddress/</a></li>
+<li><strong>Website</strong>: <a href="https://greenaddress.it/">https://greenaddress.it/</a></li>
+</ul>
+<h2 id="mycelium">Mycelium</h2>
+<p>The <strong>Mycelium</strong> wallet, previously known as <em>BitSpinner</em>, is a project <a href="https://bitcointalk.org/index.php?topic=293472.0">first published</a> in September of 2013 to create a mobile wallet with a wide array of features. The Android App is a free download on Google Play.</p>
+<p>Mycelium is developed by the European company <em>Megion R&amp;D</em> and the client software has been published under a non OSI approved open source license, making it essentially a proprietary wallet product.</p>
+<p>The server components of the wallet are completely proprietary and no source is visible. Mycelium&#39;s server integrations add a multitude of other features: fiat value hinting in over one hundred and fifty currencies, Cashila support for integrated fiat exchanging with the European SEPA transfer system, and a local trading market for exchanging Bitcoin in person.</p>
+<p>Mycelium uses reduced security validation to provide a light client experience, and private keys are generated deterministically using a BIP 32 HD wallet scheme. Tor is supported through a proxy setting, and there is support for spending funds saved in a Shamir&#39;s Secret Sharing configuration. A PIN code can be used to secure the wallet, and Mycelium supports various features for cold wallets, including watch-only mode and support for so-called BIP38 encrypted private keys.</p>
+<ul>
+<li><strong>Repository</strong>: <a href="https://github.com/mycelium-com/wallet">https://github.com/mycelium-com/wallet</a></li>
+<li><strong>Website</strong>: <a href="https://mycelium.com">https://mycelium.com</a></li>
+</ul>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/storage/wallets.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

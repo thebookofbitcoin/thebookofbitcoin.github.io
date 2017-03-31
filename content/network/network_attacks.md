@@ -1,0 +1,18 @@
+# Network Attacks
+
+## Dust Storm: July 2015 
+
+In July of 2015, an unknown attacker started an enormous wave of transactions that quickly filled many node memory pools with large numbers of transactions sending out tiny amounts of Bitcoin to many varied targets. In Bitcoin, tiny amounts that are judged not worth the fee to send them are called *dust*, and are discouraged by network relay policy because of a general judgement that the benefits of their inclusion are not worth the cost to the network. 
+
+Dust attacks were not previously unknown in Bitcoin, even Satoshi Nakamoto at one point instituted minimum transaction output amounts to begin efforts to discourage what was at the time called *penny-flooding*.
+
+In the July 2015 attack, the attacker distributed thousands of spends of about two tenth of a penny across many addresses, mostly well known publicly [charity addresses like WikiLeaks](http://motherboard.vice.com/read/wikileaks-is-now-a-target-in-the-massive-spam-attack-on-bitcoin), but also to simple *brainwallets*: well known private keys based on easily guessable English words.
+
+It was reported that the attacker committed about thirty bitcoins to the attack, a relatively small sum that would have been worth around ten thousand dollars at the time. Because of the limited nature of the attack, the use of brainwallets that would allow later cleanup, and the use of charity donation addresses in the attack, it is considered that the attacker may have had some altruistic intent. The attacker never claimed credit or explained the reason for the attack, and no credible evidence was ever presented as to the identity of the attacker.
+
+One negative outcome of a network dust flood is the increase it places on the system requirement it places on tracking unspent funds. Full nodes use heavily optimized algorithms to quickly validate transactions, efficiently archiving or discarding information about spent funds that is likely no longer important to common validation tasks. Dust represents a challenge to this optimization, nodes are not easily able to archive or discard data about dust because of the possibility that at any time it may be spent.
+
+To help mitigate the impact of this issue, the Chinese mining pool F2Pool crafted special transactions to sweep up the the dust and consolidate it into less taxing outputs. This took advantage of the unique position of a mining pool to craft non-standard transactions, making transactions [ten times the size](https://tradeblock.com/bitcoin/tx/bb41a757f405890fb0f5856228e23b715702d714d59bf2b1feb70d8b2b4e3e08) of the biggest standard transaction to efficiently clean up the mess made by the dust.
+
+An unexpected temporary side-effect of the dust sweeping transactions was to place an increased burden on full nodes, with some Blockchain explorers being knocked offline for minutes or hours due to the increased processing times required to process the unusual mega-transactions. Large transactions that may contribute to these types of temporary denials of service are deliberately marked as non-standard and banned from being relayed by normal participants in the Bitcoin peer to peer network, however miners are exempt from all transaction relay rules because they do not need to relay their transactions to put them in their own blocks. To alleviate the burden of these transactions, Bitcoin Core developer Greg Maxwell worked with F2Pool to [modify their ongoing Blockchain janitorial transactions](https://www.reddit.com/r/Bitcoin/comments/3cvw52/is_this_a_selfinterested_or_altruistically/cszhxqa) in a way that would create a more low impact processing burden on the network.
+

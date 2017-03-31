@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Book of Bitcoin</title>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
+      </div>
+    </header>
+    <div class="container" id="article">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="content"><h1 id="bitcoin-improvement-proposals">Bitcoin Improvement Proposals</h1>
+<p>The <strong>Bitcoin Improvement Proposals</strong> or BIPS system is a design framework for submitting, reviewing and introducing changes to Bitcoin in a decentralized way. The framework was modeled off of BitTorrent&#39;s improvement system, and it was first proposed by Amir Taaki in August of 2011.</p>
+<p>BIPs introduce changes in three ways:</p>
+<ol>
+<li>Informational BIPs describe guidelines or formalize design ideas</li>
+<li>Process BIPs describe changes in methodology around the development process. </li>
+<li>Standards Track BIPs describe network protocol changes, consensus rule changes, or any other impactful protocol changes.</li>
+</ol>
+<p>BIPs follow a life-cycle where they are drafted, accepted, and finalized. Drafted BIPs that are not accepted can be withdrawn or redrafted. To update a finalized BIP, a replacement can be submitted to replace it.</p>
+<h2 id="bip-0001-bip-purpose-and-guidelines">BIP 0001 - BIP Purpose and Guidelines</h2>
+<p>Amir Taaki proposed the first BIP that defined the BIPs system in August of 2011. Originally modeled after the BitTorrent Enhancement Proposals and named Bitcoin Enhancement Proposals, the name was changed to Bitcoin Improvement Proposals to avoid an abbreviation conflict. </p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki</a></p>
+<h2 id="bip-0011-m-of-n-standard-transactions">BIP 0011 - M-of-N Standard Transactions</h2>
+<p>Gavin Andresen was the first to create a standard type BIP, which outlined a proposal to add a multisig transaction type</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki</a></p>
+<h2 id="bip-0013-address-format-for-pay-to-script-hash">BIP 0013 - Address Format for pay-to-script-hash</h2>
+<p>Gavin Andresen proposed a new address type for P2SH transactions, marked with a leading &quot;3&quot;</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki</a></p>
+<h2 id="bip-0014-protocol-version-and-user-agent">BIP 0014 - Protocol Version and User Agent</h2>
+<p>Amir Taaki and Patrick Strateman proposed a Bitcoin User-Agent standard.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki</a></p>
+<h2 id="bip-0016-pay-to-script-hash">BIP 0016 - Pay to Script Hash</h2>
+<p>Gavin Andresen proposed a method for creating addresses that supported script based redemption in order to empower multi-sig and other complex transaction types.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki</a></p>
+<h2 id="bip-0021-uri-scheme">BIP 0021 - URI Scheme</h2>
+<p>Matt Corallo and Nils Schneider adapted Luke-Jr&#39;s earlier BIP to formalize a Bitcoin URI standard to make the process of making payments via links and QR more user friendly.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki</a></p>
+<h2 id="bip-0022-getblocktemplate">BIP 0022 - getblocktemplate</h2>
+<p>Luke-Jr formalized a system for sending block structures to hashers instead of just headers, in order to promote decentralization. The system was extended to cover pooled mining in BIP 0023</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki</a> 
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki</a> </p>
+<h2 id="bip-0032-hierarchical-deterministic-wallets">BIP 0032 - Hierarchical Deterministic Wallets</h2>
+<p>Pieter Wuille created a concept for wallets to build out a supply of private keys deterministically from a starting seed value, to make backing up and restoring a wallet a simpler process.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki</a></p>
+<h2 id="bip-0034-block-v2-height-in-coinbase">BIP 0034 - Block v2, Height in Coinbase</h2>
+<p>Gavin Andresen proposed a versioning process for blocks and a block version increase to v2.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki</a></p>
+<h2 id="bip-0044-multi-account-hierarchy-for-deterministic-wallets">BIP 0044 - Multi-Account Hierarchy for Deterministic Wallets</h2>
+<p>Marek Palatinus and Pavol Rusnak proposed an increased formalization of the deterministic wallet system for standardization reasons.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki</a> </p>
+<h2 id="bip-0050-march-2013-chain-fork-post-mortem">BIP 0050 - March 2013 Chain Fork Post-Mortem</h2>
+<p>Gavin Andresen wrote a description of a problem that led to a disastrous accidental Bitcoin hard fork that led to hundreds of Bitcoins being double spent.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki</a></p>
+<h2 id="bip-0065-op_checklocktimeverify">BIP 0065 - OP_CHECKLOCKTIMEVERIFY</h2>
+<p>Also known as OP_HODL, Peter Todd proposed a new operation code to indicate that a transaction&#39;s funds may not be spent until a specified future date.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki</a></p>
+<h2 id="bip-0070-payment-protocol">BIP 0070 - Payment Protocol</h2>
+<p>Gavin Andresen and Mike Hearn proposed a protocol standard for coordinating the details of a Bitcoin payment, oriented towards the merchant and customer use-case.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki</a></p>
+<h2 id="bip-0112-checksequenceverify">BIP 0112 - CHECKSEQUENCEVERIFY</h2>
+<p>BtcDrak, Mark Friedenbach, and Eric Lombrozo proposed an upgrade to the Bitcoin script to enable transaction scripts based on relative time values. Using this opcode, escrow transactions may include timeouts to avoid a scenario in which funds are stuck through a cooperation failure.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki</a></p>
+<h2 id="bip-0141-segregated-witness">BIP 0141 - Segregated Witness</h2>
+<p>Johnson Lau, Eric Lombrozo, and Pieter Wuille proposed a large improvement to Bitcoin transactions that clearly split transactions so that all of the data related to the scripting and signing of the transaction was separated into its own demarcated section. Splitting this data out fixes various issues, chief among them a problem called transaction malleability in which duplicate versions of the same transaction could exist on the network.</p>
+<p><a href="https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki</a></p>
+</div>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/community/bitcoin_improvement_proposals.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
+                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
