@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="network-attacks">Network Attacks</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="network-attacks">Network Attacks</h1>
 <h2 id="dust-storm-july-2015">Dust Storm: July 2015</h2>
 <p>In July of 2015, an unknown attacker started an enormous wave of transactions that quickly filled many node memory pools with large numbers of transactions sending out tiny amounts of Bitcoin to many varied targets. In Bitcoin, tiny amounts that are judged not worth the fee to send them are called <em>dust</em>, and are discouraged by network relay policy because of a general judgement that the benefits of their inclusion are not worth the cost to the network. </p>
 <p>Dust attacks were not previously unknown in Bitcoin, even Satoshi Nakamoto at one point instituted minimum transaction output amounts to begin efforts to discourage what was at the time called <em>penny-flooding</em>.</p>
@@ -25,18 +7,4 @@
 <p>One negative outcome of a network dust flood is the increase it places on the system requirement it places on tracking unspent funds. Full nodes use heavily optimized algorithms to quickly validate transactions, efficiently archiving or discarding information about spent funds that is likely no longer important to common validation tasks. Dust represents a challenge to this optimization, nodes are not easily able to archive or discard data about dust because of the possibility that at any time it may be spent.</p>
 <p>To help mitigate the impact of this issue, the Chinese mining pool F2Pool crafted special transactions to sweep up the the dust and consolidate it into less taxing outputs. This took advantage of the unique position of a mining pool to craft non-standard transactions, making transactions <a href="https://tradeblock.com/bitcoin/tx/bb41a757f405890fb0f5856228e23b715702d714d59bf2b1feb70d8b2b4e3e08">ten times the size</a> of the biggest standard transaction to efficiently clean up the mess made by the dust.</p>
 <p>An unexpected temporary side-effect of the dust sweeping transactions was to place an increased burden on full nodes, with some Blockchain explorers being knocked offline for minutes or hours due to the increased processing times required to process the unusual mega-transactions. Large transactions that may contribute to these types of temporary denials of service are deliberately marked as non-standard and banned from being relayed by normal participants in the Bitcoin peer to peer network, however miners are exempt from all transaction relay rules because they do not need to relay their transactions to put them in their own blocks. To alleviate the burden of these transactions, Bitcoin Core developer Greg Maxwell worked with F2Pool to <a href="https://www.reddit.com/r/Bitcoin/comments/3cvw52/is_this_a_selfinterested_or_altruistically/cszhxqa">modify their ongoing Blockchain janitorial transactions</a> in a way that would create a more low impact processing burden on the network.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/network/network_attacks.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/network/network_attacks.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
