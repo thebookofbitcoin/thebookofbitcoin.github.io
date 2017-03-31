@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="bitcoin-full-node-peer-to-peer-network">Bitcoin Full Node Peer to Peer Network</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="bitcoin-full-node-peer-to-peer-network">Bitcoin Full Node Peer to Peer Network</h1>
 <p>The purpose of full nodes in the Bitcoin network is manifold. They exist as sovereign arbiters of the true state of the currency, they welcome new entrants into the network by sharing the history of the shared ledger, and they work together to spread new transactions to every corner of the earth.</p>
 <p>There are many ways to use Bitcoin that do not require the use of a full node, however a full node describes something that offers the best level of security and privacy. As long as it is practical to use a full node, it&#39;s strongly suggested that one be used.</p>
 <p>The precautionary suggestion to use a full node is one in which the user must be proactive about their own safety. The safety recommendation is analogous to wearing a seat belt in a car, or using a prophylactic device in an amorous encounter. Following a general guideline for safety that incurs some unwanted cost might not be immediately obvious, but on sober reflection of all the risks ignoring the guideline can be seen to be a mistake.</p>
@@ -52,18 +34,4 @@
 <p>To address bandwidth costs, Bitcoin Core added an upload limiter to put a cap on upload bandwidth, and a new <em>blocksonly</em> configuration option that limits the download bandwidth requirement to a maximum of about two thousand bytes/second, well within reach of even a standard dialup modem.</p>
 <p>In addition to optimizations to reduce the marginal burden of transactions, optimizations were also made to lift the weight of the initial Blockchain sync. After users began to be forced into using BitTorrent to perform the initial sync of the large Blockchain data files, Bitcoin Core developers integrated a superior solution into Bitcoin Core itself, in a mechanism called <em>headers-first</em> sync that removes the bandwidth bottleneck to an initial sync. The initial sync may also be sped up by adjusting the dbcache option which allocates the syncing Bitcoin Core process additional memory beyond the low impact defaults of a standard Bitcoin Core install.</p>
 <p>Beyond all these options stands a general firewall to the cost of a full node. This firewall is known as the <em>block size limit</em>, and it puts a hard cap on the introduction of new costs on a node. Not all costs are limited by this, for example the set of transactions that are kept in memory instead of on disk or pruned is not strictly limited, only at a gross level does the block limit apply in that case. But generally speaking, the block limit is a general, final limit that protects the full node peer to peer network, and thus Bitcoin&#39;s durability, by promoting a low barrier to entry and thus a diverse and wide set of participants.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/network/full_node_peer_to_peer_network.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/network/full_node_peer_to_peer_network.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
