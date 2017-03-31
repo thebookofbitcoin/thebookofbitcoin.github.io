@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="bitcoin-release-history">Bitcoin Release History</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="bitcoin-release-history">Bitcoin Release History</h1>
 <p>Bitcoin Core Versions</p>
+<h2 id="0-13-0-august-23-2016">0.13.0 - August 23, 2016</h2>
+<ul>
+<li>Ended support for Windows XP</li>
+<li>Increased default dbcache to 300mb from 100mb to speed up initial sync</li>
+<li>Added -stdin argument for command line input secrecy</li>
+<li>Added Linux ARM builds to releases</li>
+<li>Added Compact Block support (BIP 152) which greatly improves relay efficiency</li>
+<li>Added HD Key Generation which allows restoration of bitcoins with a single  backup instead of constant backups</li>
+<li>Added Segregated Witness for testnet, without activation on mainnet</li>
+<li>Added Child-Pays-For-Parent to allow miners to optimally earn mining fees and users to increase effective fees of parent transactions</li>
+<li>Removed CPU miner</li>
+<li>Added feefilter messages to the P2P protocol to avoid relaying low fee transactions</li>
+<li>Removed the alert system due to a potential DOS vector, leak concerns</li>
+<li>Added UTF-8 support to the JSON RPC API</li>
+<li>Added JSON RPC API support for representing CSV and CLTV</li>
+<li>Added JSON RPC commands: generatetoaddress, importprunedfunds, removeprunedfunds, signmessagewithprivkey, getmempoolancestors, getmempooldescendants, getmempoolentry, createwitnessaddress, addwitnessaddress</li>
+</ul>
 <h2 id="0-12-1-april-15-2016">0.12.1 - April 15, 2016</h2>
 <ul>
 <li>Added BIP 9 system for allowing miners to signal multiple soft forks simultaneously</li>
@@ -225,18 +224,4 @@
 <ul>
 <li>Improved error reporting in the JSON-RPC API</li>
 </ul>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/software/bitcoin_core_release_history.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/software/bitcoin_core_release_history.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
