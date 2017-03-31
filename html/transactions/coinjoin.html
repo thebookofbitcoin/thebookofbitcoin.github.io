@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="coinjoin">CoinJoin</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="coinjoin">CoinJoin</h1>
 <p>One important problem to be solved in Bitcoin is creating a digital currency that is fungible. Fungibility means that every unit of Bitcoin should be equivalent to every other unit of Bitcoin. In practice, not all Bitcoin units are created equal. Some Bitcoins are linked to crimes, or to famous people, or to nothing, making them more or less valuable than others. To fix this, the <strong>CoinJoin</strong> concept proposes a way to create blind mixing of coins to make following the trail of ownership using Blockchain analysis much more difficult.</p>
 <p>CoinJoining takes advantage of two important facts of how Bitcoin transactions work: </p>
 <ol>
@@ -32,18 +14,4 @@
 <p>There are some practical challenges presented by the CoinJoin concept, challenges which account for the relative rarity of their use. The greatest challenge presented is coordinating a group of motivated people with whom to mix coins, and coordinating them in a privacy conscious, trust minimizing way.</p>
 <p>To solve this, various concepts have been attempted, by far the most popular being the <a href="https://github.com/JoinMarket-Org/joinmarket/blob/master/README.md">JoinMarket</a> which creates a market in which motivated mixers can pay others to to participate in a mix with them at a market defined rate.</p>
 <p>Another important consideration is that CoinJoin must be used in conjunction with the most basic privacy improving mechanism: avoiding address re-use. Since CoinJoins separate coins into masked uniform outputs, the uniformity and separation of funds must be maintained or the coin value matching problem applies. Fortunately with the advent of HD wallets, common wallet practice has dramatically moved in the direction of avoiding address reuse by default. </p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/transactions/coinjoin.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/transactions/coinjoin.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
