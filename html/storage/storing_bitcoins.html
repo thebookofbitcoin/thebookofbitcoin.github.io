@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="bitcoin-storage">Bitcoin Storage</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="bitcoin-storage">Bitcoin Storage</h1>
 <p>It&#39;s said that Bitcoin allows someone to be their own bank. This means that when it comes to money Bitcoin users are only beholden to themselves: no third party can dictate to a Bitcoin user how they may spend their money. However this principle of self-determination also means that when it comes to security Bitcoin users have only themselves to rely upon.</p>
 <p>There are a wide variety of ways to use Bitcoin, which means that securing Bitcoin is not a one-size-fits-all proposition. Generally though, there are two recommended configurations for using Bitcoins: hot and cold wallets. Hot wallets optimize for ease of spending and movement, cold wallets go the other way and optimize for difficulty of movement to prevent theft. </p>
 <h2 id="hot-wallets">Hot Wallets</h2>
@@ -70,18 +52,4 @@
 <p>To avoid this scenario, all that is needed is a backup of the private keys. Not only is this important for securing funds, it can be used as a method to secure funds in a cold way. By deliberately and securely erasing a hot wallet and keeping the backup out of the reach of any network or computer, the funds are logically separated it from the possibility of remote theft.</p>
 <p>The best way to accomplish this is a durable and simple system called a Hierarchical Deterministic Seed, or <em>HD</em> seed, a system formalized in Pieter Wuille&#39;s Bitcoin Improvement Proposal <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP 32</a>. Essentially, this backup scheme specifies a single random number that is used as a starting seed to deterministically generate a lot of other random numbers, or private keys, to be used by a wallet instead of many individual isolated random numbers that must be collectively backed up.</p>
 <p>The big advantage to this system is the extreme ease of backup and restoration: a seed can be encoded as a simple set of twelve words, which are easily written down. Users should keep at least three copies of their seed in separate, secure places, inclusive with a software or hardware wallet using the seed. Various mechanisms exist to improve the durability of stored seeds: laminated paper, safe deposit boxes, safes, etc. Writing down the seed is preferable to printing, as printers and the chain of printing may leak a copy along the way.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/storage/storing_bitcoins.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/storage/storing_bitcoins.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
