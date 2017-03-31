@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="web-wallets">Web wallets</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="web-wallets">Web wallets</h1>
 <p>The <strong>web wallet</strong> concept is a wallet which is served as a web application. This concept can be split into multiple separate concepts: custodial wallets that function like banks, signatory wallets that function like notaries, and javascript wallets that function like software wallets in miniature.</p>
 <p>There are some similar security and privacy concerns with all web wallets, because the Web&#39;s trust model of clients trusting servers is not compatible with Bitcoin&#39;s open source software trust model of using well vetted independent software to provide security and privacy. Web pages are also so ubiquitous and amorphous that they are particularly vulnerable to social hacking and phishing attacks, where users are tricked into revealing their credentials and therefore access to their Bitcoins by being presented with a web page that appears similar to the one that they trust, but is in fact run by a malicious operator. </p>
 <h2 id="custodial-wallets">Custodial Wallets</h2>
@@ -36,18 +18,4 @@
 <p>Another unfortunate drawback to Javascript wallets is that the standard set of APIs available to web developers is seriously lacking in the cryptographic API set of functions. Sensitive information not being easy for the developer to secure or handle means that there is a greater likelihood of security error. Weak Web cryptography APIs also include weak randomization APIs, a critical security element in using Bitcoin security, since Bitcoins are controlled by a secret random number: if the number is not sufficiently random, the Bitcoins may be stolen.</p>
 <p>From a privacy perspective, Javascript web wallets are quite similar to the other web wallets: they tend to leak financial details of users to the web service operator. Even worse, Javascript wallets tend not to validate the data sent back from the web service, making them particularly vulnerable to man in the middle attacks that could put users at risk of loss of funds.</p>
 <p>Although browsers are generally considered to be a secure environment, it&#39;s often the case that there are still periodic security problems, due to the fact that a browser is also a highly shared environment and a high value target for finding vulnerabilities. Cross site scripting attacks, privacy leaks, and other similar problems are common in web applications, particularly Javascript ones. Using a software or hardware wallet implies a logical firewall of separation from third parties that is not present in a Javascript web wallet.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/services/web_wallets.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/services/web_wallets.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
