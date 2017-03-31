@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="deterministic-wallets">Deterministic Wallets</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="deterministic-wallets">Deterministic Wallets</h1>
 <p>Bitcoin Wallets generate and store the private keys that control a user&#39;s funds. These keys are simply random numbers, chosen by the wallet from a range of numbers so vast that it is essentially impossible for there to be a collision with another wallet doing the same thing. <strong>Deterministic wallets</strong>, also known as <strong>HD wallets</strong> help to simplify backing up and restoring wallets by using a random seed number to deterministically generate all of a wallet&#39;s private keys.</p>
 <h2 id="private-key-backups">Private Key Backups</h2>
 <p>Whenever a Bitcoin user receives funds, they need a new private key. This means that the set of numbers that are important to store and back up is increasing indefinitely. In the original Bitcoin wallet, this required refreshing a back-up with a new one every time a user received funds.</p>
@@ -40,18 +22,4 @@
 <p>From a security and privacy perspective, under normal circumstances a deterministic wallet is just as good as a wallet in which random keys are individually generated. However use of the public master key can prove the exception to that rule. Although it is called a <em>public</em> master key, for privacy reasons it should not be shared publicly, as it can link all wallet addresses together. Another important reason it should not be shared is that if a single private key derived from the private seed is leaked and the public master key is also known, all the other private keys may be derived as well. This type of theft is quite uncommon, but for these reasons it is strongly recommended that the master public key still be treated as guarded information.</p>
 <p>One practice that must differ between using an individually generated wallet and a deterministic wallet is the practice of creating addresses that are never used. HD wallets have a key implementation detail in the way that they calculate wallet balances: they go through their deterministic algorithm sequentially to determine if each private key has been used, stopping when no further activity is detected. This is a critical optimization, an HD wallet cannot scan endlessly or know automatically all of its balance information without individual queries. To provide a safety margin, HD wallets use something called a <em>gap limit</em>, which represents the number of keys checked that have no activity before the balance query will cease its sequential checking. This gap limit can means that creating many addresses that are never used is a bad practice and can lead to users mistakenly believing their funds have been lost, if more unused addresses are created beyond the gap limit safety margin.</p>
 <p>A powerful feature of BIP 44 HD wallets is the internal pass phrase account system. This feature addresses a common security concern amongst people who worry about keeping their seed backups secure from theft: it adds an internal password to the stored seed. The feature also powers another use-case, a scenario in which the owner is confronted with the seed and forced to give access to it. As a precautionary measure, the owner may create a red-herring pass phrase and a real pass-phrase, pretending that the red-herring phrase contains the entirety of the funds when forced to open the wallet under duress. But with this power also comes risk deriving from any situation where users choose pass phrases to remember. Human generated pass phrases should generally be considered weak: a brute-force attack can most often bypass them. And memorized pass phrases can be easily forgotten, leading to an annoying situation where funds are temporarily inaccessible, or if a truly strong pass-phrase has been chosen, permanently lost.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/storage/deterministic_wallets.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/storage/deterministic_wallets.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
