@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="smart-contracts">Smart Contracts</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="smart-contracts">Smart Contracts</h1>
 <p>Bitcoins on the Blockchain are moved through <em>transactions</em>, which are simply files that contain cryptographically signed statements about the movements of coins. The entire Blockchain history is basically just a giant set of these signed statements, Blockchain balances are always determined by following the chains of ownership declared by the transactions.</p>
 <p>The signed statements in transactions can actually be thought of as a signed contract: a buyer signs an agreement to send an amount of Bitcoin to a seller. The language of a transaction is a flexible language, like a computer scripting language. It can express a wide variety of statements beyond the simple statement of &quot;send funds to address&quot;. Because there is this variety of expression, Bitcoin transactions are sometimes also referred to as <strong>smart contracts</strong>.</p>
 <h2 id="history-of-smart-contracts">History of Smart Contracts</h2>
@@ -57,18 +39,4 @@
 <p>Channels need to be periodically closed and re-opened based on the expiration date of the time-lock. The time-lock ensures to the other party that the creator cannot back out of the contract unexpectedly or with an obsolete refund transaction. At the same time, the time lock guarantees that if the other party stops cooperating, the funds may be returned without their intervention after a period of time.</p>
 <p>Although this protocol is promising for the rapid and economical advantages it brings, it is not yet in widespread use. The complexity involved in the protocol, complications from bugs and deficiencies with the Blockchain smart contract system, and the limitation presented locking funds to a single other party create large barriers to its use. That is not to say efforts have not been made. Developers have created libraries to abstract away the complexity of the protocol, such as in <a href="https://bitcoinj.github.io/working-with-micropayments">bitcoinj</a>. Bitcoin Core has been progressively addressing the bugs and deficiencies that cause problems for effective channel use. And many efforts have been made to expand the protocol from single party payments to a network of connected parties.</p>
 <p>Some examples of payment channels in the wild are the <a href="https://21.co/mkt/">21 Marketplace</a> which provides a series of APIs that are paid over payment channels. Another commonly cited example is the <a href="https://streamium.io/">Streamium</a> streaming video service, which offers pay per second viewing of premium video content.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/transactions/smart_contracts.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/transactions/smart_contracts.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
