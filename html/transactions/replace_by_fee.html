@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="replace-by-fee">Replace By Fee</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="replace-by-fee">Replace By Fee</h1>
 <p>Every transaction published to the Bitcoin network enters a state known as <em>unconfirmed</em> or <em>0 confirmations</em>, meaning that the transaction broadcast succeeded and now the transaction awaits confirmation by a miner. During this waiting period, the publisher of the transaction might wish to alter the transaction, but under normal circumstances the network ignores transaction alterations within a lengthy timeout period of two or three days. Using <strong>replace by fee</strong> a transaction may bypass this transaction alteration prevention mechanism by publishing a transaction replacement with a fee higher than the previous submission.</p>
 <h2 id="origin-of-the-sequence">Origin of the Sequence</h2>
 <p>Since the start of Bitcoin, until the present, a feature known as a <em>sequence number</em> has been present in every transaction. The purpose of the sequence number was to allow in-flight updates to transactions, by replacing them with a later sequence number. In the original Bitcoin software published by Satoshi Nakamoto, this was possible, but Satoshi <a href="https://github.com/bitcoin/bitcoin/commit/05454818dc7ed92f577a1a1ef6798049f17a52e7#diff-118fcbaaba162ba17933c7893247df3aR522">disabled sequence numbers</a> in version 0.3.12. Satoshi wrote &quot;Disable replacement feature for now&quot;, indicating the feature posed a problem to the network that required a temporary disabling.</p>
@@ -30,18 +12,4 @@
 <p>FSS-RBF was an attempt to ameliorate concerns that RBF would be used to defraud, by requiring the replacing transactions to still pay the same destination addresses. This proposal did serve to appease the worriers, however as a long term solution it was widely criticized as privacy abusing and therefore fungibility threatening. Bitcoin destinations are designed to be opaque, to avoid the chain of payments being meaningful and to protect the financial privacy of users. Adding new transaction destinations would help defeat privacy protections by pointing to the destinations as linked to the author of the transactions.</p>
 <p>A final compromise was found after seemingly endless debate: a new, non-standard transaction type that explicitly signaled its status as replaceable. This compromise was called <em>Opt-in RBF</em>, and it simply reenabled the original replaceability Satoshi temporarily disabled, with the protections against DoS, but in a simple form that wallets must be deliberately coded to show in unconfirmed state. Wallets could then easily show these transactions in a level below unconfirmed: unconfirmed and easily replaceable.</p>
 <p>In February of 2016, Bitcoin Core version 0.12.0 included support for this signaled replaceability, although only for relaying and mining purposes, no user interface support was included.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/transactions/replace_by_fee.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/transactions/replace_by_fee.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
