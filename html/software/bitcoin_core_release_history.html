@@ -1,6 +1,36 @@
 <!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="bitcoin-release-history">Bitcoin Release History</h1>
 <p>Bitcoin Core Versions</p>
-<h2 id="0-13-0-august-23-2016">0.13.0 - August 23, 2016</h2>
+<h1 id="0-14-0-march-8-2017-101-contributors">0.14.0 - March 8, 2017 - 101 Contributors</h1>
+<ul>
+<li>Improved sync time through signature cache optimization.</li>
+<li>Added assumed-valid blocks which allows for simple script validation check bypassing for known-good blocks.</li>
+<li>Improved peer to peer networking speed with a code refactoring</li>
+<li>Adjusted UTXO cache to claim unused mempool memory, speeding up initial block download</li>
+<li>Added pruning via RPC call pruneblockchain</li>
+<li>Deprecated getinfo</li>
+<li>Added ZMQ support for Windows</li>
+<li>Added nested commands to GUI debug console</li>
+<li>Added p2p network toggle to GUI to disable the p2p network and a new RPC command setnetworkactive to do the same thing</li>
+<li>Added syncing modal overlay to indicate syncing status when catching up to chain head</li>
+<li>Added support for JSON RPC named arguments</li>
+<li>Added walletrbf option to use opt-in RBF for transactions and a bumpfee command in the RPC to increase the fee of an RBF transaction</li>
+<li>Removed sensitive information from debug console command history</li>
+<li>Added feature to preserve the mempool across restarts</li>
+<li>Added a final alert to permanently disable the alert system</li>
+<li>Added HD wallet indicator to the GUI</li>
+<li>Removed the priority system for transactions</li>
+</ul>
+<h2 id="0-13-2-january-3-2017">0.13.2 - January 3, 2017</h2>
+<ul>
+<li>Ended support for OS X 10.7</li>
+<li>Various bug fixes</li>
+</ul>
+<h2 id="0-13-1-october-27-2016">0.13.1 - October 27, 2016</h2>
+<ul>
+<li>Added Segregated Witness soft fork activation</li>
+<li>Added soft fork to fix the null-dummy 3rd party transaction malleation bug</li>
+</ul>
+<h1 id="0-13-0-august-23-2016-101-contributors">0.13.0 - August 23, 2016 - 101 Contributors</h1>
 <ul>
 <li>Ended support for Windows XP</li>
 <li>Increased default dbcache to 300mb from 100mb to speed up initial sync</li>
