@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="bitcoin">Bitcoin</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="bitcoin">Bitcoin</h1>
 <p><strong>Bitcoin</strong> is a currency designed to be universally usable, require no trust and not be reliant on any single party for its operation. To promote the idea of bitcoins being valuable, the design limits the production of coins and utilizes them as a prioritization and rate limiting mechanism when sending transactions. Satoshi Nakamoto <a href="https://www.mail-archive.com/cryptography%40metzdowd.com/msg09959.html">first proposed Bitcoin via a white paper</a>, in November of 2008, and then published a client that began the network on January 3rd, 2009.</p>
 <h2 id="limited-issuance">Limited Issuance</h2>
 <p>Bitcoin miners are allowed to reward themselves with a subsidy when they publish new blocks, this serves to distribute the currency. To promote the idea of bitcoins being scarce, this subsidy is designed to reduce exponentially over time: every four years the subsidy is reduced by half. At the start of Bitcoin, a miner could reward themselves with up to fifty bitcoins per block, after four years this subsidy was reduced to twenty-five bitcoins. The sum of these subsidies over the entire lifetime of Bitcoin is designed to total twenty-one million bitcoins.</p>
@@ -33,18 +15,4 @@
 <p>The key innovation that Bitcoin makes to reduce trust in accepting transactions is the &quot;mining&quot; concept. A key problem faced by any distributed system is determining the ordering of operations across multiple independent systems. In a digital currency this problem manifests itself as a possibility in which a modifier of the transaction history may modify the history in such a way that they first appear to send funds to someone else, but then alter the history so that the funds are sent to themselves, nullifying the initial send.</p>
 <p>To solve this, mining requires that the parties who alter the shared transaction history must provably expend energy when they modify the transaction ledger. Through this mechanism, when receiving a transaction the receiver can determine that if the party sending the funds will modify the history to take their funds back, they will also have to expend energy and therefore money to create a new history. This allows receivers to manage their risk, and wait a commensurate amount of time before accepting a transaction from a third party.</p>
 <p>To prevent node centralization, the design of the network is such that full nodes have a low operating cost, they are designed to be accessible to a wide range of users. To prevent mining centralization, the proof of work problem that miners have to solve is designed to be very generic and the process for publishing solved proof of work is also designed to be accessible to a wide range of users.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/protocol/bitcoin.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/protocol/bitcoin.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
