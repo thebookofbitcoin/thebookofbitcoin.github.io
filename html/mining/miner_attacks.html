@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="miner-attacks">Miner Attacks</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="miner-attacks">Miner Attacks</h1>
 <p>Bitcoin miners exist to solve two important problems: distribution of the currency, and ordering and placing transactions. In Bitcoin, all participants are equal in all ways, with these two exceptions: only miners are granted the power to print new currency up to a limit, and only miners can place and order transactions. The reasoning behind these powers is not arbitrary, it&#39;s because they are considered the best solution to problems that have no other better answer.</p>
 <p>Miner powers are in fact privileges, it&#39;s up to miners how they use them. The only guard against their abuse is simply a cost to the miner, and limited benefits to abuse. For example, a miner is responsible for printing new coins, but he may also refrain from printing them. This action would come at a cost to him, and only marginal harm would befall the network, so this is not a common nor fretted about scenario, but it is still possible and outside of the design of the intended network function.</p>
 <p>The privilege to order or refuse to place transactions is where a miner has the most possibility to abuse his power. There are two ways in which this might occur: in a reordering attack where transactions are reordered to carry out a fraudulent purchase, or in a denial of service attack where transactions are denied placement in the chain to disrupt or degrade the network.</p>
@@ -50,18 +32,4 @@
 <p>To mitigate this attack, it is recommended to all merchants and even all users who receive Bitcoin, to always use a fully validating node when receiving funds. Not using a light or otherwise non-validating client is the only way to proactively prevent or actively stop a 51% attacker from arbitrarily changing the rules of the system.</p>
 <p>It has been proposed by many, including Satoshi Nakamoto in the original Bitcoin white paper, that additional mitigating defenses be instituted to defend against this potentially devastating attack. However the proposed defenses are difficult to create and since running a full node is all that is necessary to mitigate this attack, the proposed defenses have not been instituted to date.</p>
 <p>Another strong mitigation against this attack is again the future opportunity cost of the network being healthy. An attacking miner who executes a 51% attack to incur a great cost to users may also be damaging his future profits in the process. However this is only broadly true, a 51% attacking miner might execute an attack that the market feels is acceptable given the disrupting alternative of attempting to change the set of miners or cease transacting, and thus it is possible for a majority miner to abuse this method and suffer only a minor or even zero future opportunity cost.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/mining/miner_attacks.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/mining/miner_attacks.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
