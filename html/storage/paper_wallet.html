@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="paper-wallet">Paper Wallet</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="paper-wallet">Paper Wallet</h1>
 <p>Although computers are needed to work with Bitcoin, they also represent a security and durability threat. Computing devices can be hacked, have errors, get broken, whereas many forms of traditional currency such as gold coins and cash are immune from these particular foibles. <strong>Paper wallets</strong> combine the durability and security of physical currency forms with the digital advantages of Bitcoin, such as redundant storage.</p>
 <p>Bitcoin wallets hold Bitcoin funds through <em>private keys</em>, simply very large random numbers that are used to represent the identity of a fund&#39;s authorized spender. To transfer funds, fund transfer statements are cryptographically signed with the stored random numbers to authenticate the transfer.</p>
 <p>When not signing fund transfers, Bitcoin wallets do nothing with their stored private keys, they simply sit in storage, waiting for a transfer. In a paper wallet, the storage of a Bitcoin wallet is serialized to an analog paper form. When the owner of the paper wallet is ready to send the stored coins, the data on the paper is digitized and then used to authorize a transfer.</p>
@@ -36,18 +18,4 @@
 <p>When crafting paper wallets, HD or standard keys, critical care must be taken to the environment in which they are created. One method that precludes leaking of the keys is to physically disconnect the key generation method from any communication channel before generating the random key. This logically separates the key from any possibility of remote digital access.</p>
 <p>Logical separation from communication channels does not guarantee security. The random generation of a wallet seed or a private key requires that the generating code be true to its purpose. Tainted key generation software has no need for leaking keys, they are essentially pre-leaked to an attacker. To avoid this, a secure software environment as possible is recommended for key generation: avoiding shared platforms such as browsers, or even general purpose computing devices if a hardware wallet is available. Invalid random code may even occur by accident, so well vetted key generation is quite critical to paper wallet security.</p>
 <p>Printing paper wallets is a popular option, particularly for single private keys, due to the complexity of characters in a standard private key serialization. However printers should be avoided or treated with caution, as many models cache data, or may be hacked to leak data, leading to a potential loss of funds. HD wallet seeds address this issue by being more user friendly: writing down a set of twelve simple words is a task in which a printer is easily avoided.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/storage/paper_wallet.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/storage/paper_wallet.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
