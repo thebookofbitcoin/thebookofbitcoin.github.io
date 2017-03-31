@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="testnet">Testnet</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="testnet">Testnet</h1>
 <p>The Bitcoin <strong>testnet</strong> is an alternative block chain, created for the purpose of testing upcoming alterations to or new software for the Bitcoin Blockchain. The entire Testnet network is cleanly isolated from the Bitcoin Blockchain, using port <em>18333</em> instead of <em>8333</em>, dedicated address formats to prevent accidental overlap, and other network rules to prevent any interaction between the two networks.</p>
 <p>Standard Bitcoin Core releases support testnet, enabled througha command line switch <em>testnet=1</em> to swap out of the main network. Various other wallets provide an interface to testnet, including light wallets such as CoPay. Testnet is strongly recommended as the appropriate place to conduct research and testing, and there is no standard transaction whitelist checking for relaying on testnet, so even advanced future type transactions may be attempted in the sandbox environment.</p>
 <h2 id="origins">Origins</h2>
@@ -25,18 +7,4 @@
 <p>To combat this, Bitcoin Core abandoned the original testnet and created Testnet2, with the stern warning that testnet&#39;s coins were ephemeral and not intended to hold value. Attempting to build a new sustained currency on top of the test network would not be supported, and to preempt any future attempts, developers promised to keep creating new testnets until the futility of attempting to store value in the test coins was made sufficiently obvious.</p>
 <p>Testnet2 accomplished its goals of destroying the value of the coins, however a wide disparity in mining hardware started to become apparent to the test network. When incredibly powerful miners would test on the network, they could abruptly leave, putting it in a state where the difficulty could not adjust quickly, impeding testing. In Bitcoin Core&#39;s 0.7.0 release in September of 2012, the test network was again reset to create Testnet3 with test-network specific rules to prevent difficulty difficulties by simply resetting difficulty after certain timeouts.</p>
 <p>Testnet3 functioned for years without incident, however with the development of the Segregated Witness or <em>SegWit</em> feature developed in 2015, a great divergence from the standard consensus logic was seen to present an issue with an overlap on the main testing network. To facilitate isolated development on SegWit, a temporary separate testing network was created in December of 2015, called <em>SegNet</em>. SegNet saw multiple iterations as the feature ran through the final stages of testing and development, but eventually the feature was deemed stable enough in May of 2016 to merge into Testnet and shut down the separate testing network.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/protocol/testnet.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/protocol/testnet.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
