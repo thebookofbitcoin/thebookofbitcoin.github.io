@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Book of Bitcoin</title>
-  </head>
-  <body>
-    <header class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div>
-      </div>
-    </header>
-    <div class="container" id="article">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="content"><h1 id="block">Block</h1>
+<!DOCTYPE html><html lang="en"><head><link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Book of Bitcoin</title></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="../../index.html"><i class="fa fa-bookmark"></i><span>&#160;The Book of Bitcoin</span></a></div></div></header><div class="container" id="article"><div class="row"><div class="col-md-8"><div class="content"><h1 id="block">Block</h1>
 <p>A Bitcoin <strong>block</strong> is an individual encapsulation of transactions on the Bitcoin Blockchain. Blocks serve as a timekeeping mechanism for the Bitcoin network, and collectively provide for what is essentially a canonical transaction history of the network. Each block, save for the first or <em>genesis</em> block, points backwards to a previous block, forming a chain of blocks called the Blockchain. Since the process of publishing blocks is open, there can be multiple valid chains of blocks. To determine a working version of history Bitcoin full nodes are programmed to use the longest chain of valid blocks, with ties going to the first seen.</p>
 <p>Blocks are intended to serve as a permanent transaction record, with a proof of work cost serving as a prevention mechanism for future block displacement. As blocks link to each other in a chain, the cost to alter the chain of blocks grows in proportion to the length of the blocks: the signature method in each block and in each link means that changing a single block also requires changing all the blocks linking to it. The network nodes that append to the block record are called <em>miners</em> and they are selected via an open process of random, proof of work weighted, selection called <em>winning a block</em> that is designed to be repeated every ten minutes on average.</p>
 <h2 id="proof-of-work">Proof of Work</h2>
@@ -37,18 +19,4 @@
 <p>It&#39;s possible through accident or deliberate purpose that crafted valid blocks will not make it into the permanent Blockchain record. Generally this situation is known as <em>orphaning</em>, and the situation only occurs for a single block. A lot of design and work goes into preventing this situation, because it is confusing and wasteful for the Blockchain to have blocks that are discarded.</p>
 <p>In the situation where there are two valid blocks published around the same time and one becomes non authoritative as being part of a shorter chain, this is called a <em>stale block</em>. Clients will simply ignore these stale blocks, and miners attempt to avoid this situation by quickly propagating their blocks to avoid losing their block prizes.</p>
 <p>If miners continue to build on a stale block, they add <em>orphan blocks</em>, so called because they have no known parent in the longest valid chain.</p>
-</div>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin/thebookofbitcoin.github.io/edit/master/content/blockchain/block.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a>
-                <p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div></div><div class="col-md-4"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="btn btn-default navbar-btn" href="https://github.com/thebookofbitcoin.github.io/edit/master/content/blockchain/block.md"><i class="fa fa-github">&#160;</i><span>Edit</span></a><p class="navbar-right navbar-text"><span>Text licensed </span><a class="navbar-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a></p></div></div></nav></div></div></div></body></html>
